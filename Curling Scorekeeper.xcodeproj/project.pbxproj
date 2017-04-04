@@ -15,6 +15,9 @@
 		663654D11E82191D00509769 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 663654CF1E82191D00509769 /* LaunchScreen.storyboard */; };
 		663654DC1E82191D00509769 /* Curling_ScorekeeperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 663654DB1E82191D00509769 /* Curling_ScorekeeperTests.m */; };
 		663654E71E82191D00509769 /* Curling_ScorekeeperUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 663654E61E82191D00509769 /* Curling_ScorekeeperUITests.m */; };
+		663654F61E84B41800509769 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 663654F51E84B41800509769 /* Game.m */; };
+		663654F91E84B57200509769 /* Score.m in Sources */ = {isa = PBXBuildFile; fileRef = 663654F81E84B57200509769 /* Score.m */; };
+		66C9847C1E92A54A006DB5B4 /* NibCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66C9847B1E92A54A006DB5B4 /* NibCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,11 @@
 		663654E21E82191D00509769 /* Curling ScorekeeperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Curling ScorekeeperUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		663654E61E82191D00509769 /* Curling_ScorekeeperUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Curling_ScorekeeperUITests.m; sourceTree = "<group>"; };
 		663654E81E82191D00509769 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		663654F41E84B41800509769 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
+		663654F51E84B41800509769 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
+		663654F71E84B57200509769 /* Score.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Score.h; sourceTree = "<group>"; };
+		663654F81E84B57200509769 /* Score.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Score.m; sourceTree = "<group>"; };
+		66C9847B1E92A54A006DB5B4 /* NibCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NibCell.xib; path = ../NibCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +109,11 @@
 		663654C01E82191D00509769 /* Curling Scorekeeper */ = {
 			isa = PBXGroup;
 			children = (
+				66C9847B1E92A54A006DB5B4 /* NibCell.xib */,
+				663654F41E84B41800509769 /* Game.h */,
+				663654F51E84B41800509769 /* Game.m */,
+				663654F71E84B57200509769 /* Score.h */,
+				663654F81E84B57200509769 /* Score.m */,
 				663654C41E82191D00509769 /* AppDelegate.h */,
 				663654C51E82191D00509769 /* AppDelegate.m */,
 				663654C71E82191D00509769 /* ViewController.h */,
@@ -207,6 +220,7 @@
 				TargetAttributes = {
 					663654BD1E82191D00509769 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = C5FFXASN32;
 						ProvisioningStyle = Automatic;
 					};
 					663654D61E82191D00509769 = {
@@ -247,6 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				663654D11E82191D00509769 /* LaunchScreen.storyboard in Resources */,
+				66C9847C1E92A54A006DB5B4 /* NibCell.xib in Resources */,
 				663654CE1E82191D00509769 /* Assets.xcassets in Resources */,
 				663654CC1E82191D00509769 /* Main.storyboard in Resources */,
 			);
@@ -275,7 +290,9 @@
 			files = (
 				663654C91E82191D00509769 /* ViewController.m in Sources */,
 				663654C61E82191D00509769 /* AppDelegate.m in Sources */,
+				663654F91E84B57200509769 /* Score.m in Sources */,
 				663654C31E82191D00509769 /* main.m in Sources */,
+				663654F61E84B41800509769 /* Game.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,6 +441,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = C5FFXASN32;
 				INFOPLIST_FILE = "Curling Scorekeeper/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Daniel-Thigpen.Curling-Scorekeeper";
@@ -435,6 +453,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = C5FFXASN32;
 				INFOPLIST_FILE = "Curling Scorekeeper/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Daniel-Thigpen.Curling-Scorekeeper";
@@ -507,6 +526,7 @@
 				663654ED1E82191D00509769 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		663654EE1E82191D00509769 /* Build configuration list for PBXNativeTarget "Curling ScorekeeperTests" */ = {
 			isa = XCConfigurationList;
@@ -515,6 +535,7 @@
 				663654F01E82191D00509769 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		663654F11E82191D00509769 /* Build configuration list for PBXNativeTarget "Curling ScorekeeperUITests" */ = {
 			isa = XCConfigurationList;
@@ -523,6 +544,7 @@
 				663654F31E82191D00509769 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
