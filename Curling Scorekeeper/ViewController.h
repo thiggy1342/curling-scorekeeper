@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Game.h"
 #import "Score.h"
+#import "SetupViewController.h"
 
 @interface ViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource>;
 
@@ -19,6 +20,12 @@
 @property (strong, nonatomic) IBOutlet UILabel *redTempScoreLabel;
 @property (nonatomic) int yellowTempScore;
 @property (nonatomic) int redTempScore;
+
+@property (nonatomic,strong) NSString *yellowTeamName;
+@property (strong, nonatomic) IBOutlet UILabel *yellowTeamLabel;
+@property (nonatomic, strong) NSString *redTeamName;
+@property (strong, nonatomic) IBOutlet UILabel *redTeamLabel;
+
 
 - (IBAction)incrementYellowTempScore:(id)sender;
 - (IBAction)decrementYellowTempScore:(id)sender;

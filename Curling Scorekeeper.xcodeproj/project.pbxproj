@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		661394931E932B2400EE3671 /* SetupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 661394921E932B2400EE3671 /* SetupViewController.m */; };
 		663654C31E82191D00509769 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 663654C21E82191D00509769 /* main.m */; };
 		663654C61E82191D00509769 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 663654C51E82191D00509769 /* AppDelegate.m */; };
 		663654C91E82191D00509769 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 663654C81E82191D00509769 /* ViewController.m */; };
 		663654CC1E82191D00509769 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 663654CA1E82191D00509769 /* Main.storyboard */; };
 		663654CE1E82191D00509769 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 663654CD1E82191D00509769 /* Assets.xcassets */; };
-		663654D11E82191D00509769 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 663654CF1E82191D00509769 /* LaunchScreen.storyboard */; };
 		663654DC1E82191D00509769 /* Curling_ScorekeeperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 663654DB1E82191D00509769 /* Curling_ScorekeeperTests.m */; };
 		663654E71E82191D00509769 /* Curling_ScorekeeperUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 663654E61E82191D00509769 /* Curling_ScorekeeperUITests.m */; };
 		663654F61E84B41800509769 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 663654F51E84B41800509769 /* Game.m */; };
@@ -38,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		661394911E932B2400EE3671 /* SetupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SetupViewController.h; path = ../SetupViewController.h; sourceTree = "<group>"; };
+		661394921E932B2400EE3671 /* SetupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SetupViewController.m; path = ../SetupViewController.m; sourceTree = "<group>"; };
 		663654BE1E82191D00509769 /* Curling Scorekeeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Curling Scorekeeper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		663654C21E82191D00509769 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		663654C41E82191D00509769 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -46,7 +48,6 @@
 		663654C81E82191D00509769 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		663654CB1E82191D00509769 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		663654CD1E82191D00509769 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		663654D01E82191D00509769 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		663654D21E82191D00509769 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		663654D71E82191D00509769 /* Curling ScorekeeperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Curling ScorekeeperTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		663654DB1E82191D00509769 /* Curling_ScorekeeperTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Curling_ScorekeeperTests.m; sourceTree = "<group>"; };
@@ -119,8 +120,9 @@
 				663654C71E82191D00509769 /* ViewController.h */,
 				663654C81E82191D00509769 /* ViewController.m */,
 				663654CA1E82191D00509769 /* Main.storyboard */,
+				661394911E932B2400EE3671 /* SetupViewController.h */,
+				661394921E932B2400EE3671 /* SetupViewController.m */,
 				663654CD1E82191D00509769 /* Assets.xcassets */,
-				663654CF1E82191D00509769 /* LaunchScreen.storyboard */,
 				663654D21E82191D00509769 /* Info.plist */,
 				663654C11E82191D00509769 /* Supporting Files */,
 			);
@@ -260,7 +262,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				663654D11E82191D00509769 /* LaunchScreen.storyboard in Resources */,
 				66C9847C1E92A54A006DB5B4 /* NibCell.xib in Resources */,
 				663654CE1E82191D00509769 /* Assets.xcassets in Resources */,
 				663654CC1E82191D00509769 /* Main.storyboard in Resources */,
@@ -292,6 +293,7 @@
 				663654C61E82191D00509769 /* AppDelegate.m in Sources */,
 				663654F91E84B57200509769 /* Score.m in Sources */,
 				663654C31E82191D00509769 /* main.m in Sources */,
+				661394931E932B2400EE3671 /* SetupViewController.m in Sources */,
 				663654F61E84B41800509769 /* Game.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -334,14 +336,6 @@
 				663654CB1E82191D00509769 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		663654CF1E82191D00509769 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				663654D01E82191D00509769 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

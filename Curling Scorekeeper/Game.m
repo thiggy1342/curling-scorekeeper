@@ -17,19 +17,24 @@
         self.redScore = [[Score alloc]init];
         self.end = 1;
         self.inProgress = true;
+        self.hasHammer = @"yellow";
     }
     return self;
 }
 
 -(void)finishEnd:(NSString*) scoringTeam :(int) pointsScored {
-    if([scoringTeam  isEqual: @"yellow"] && pointsScored > 0){
+    if([scoringTeam isEqual: @"yellow"]){
         [self.yellowScore addToScore:pointsScored AtEnd:self.end];
         [self.redScore addToScore:0 AtEnd:self.end];
-        self.hasHammer = @"red";
-    } else if ([scoringTeam isEqual:@"red" ] && pointsScored > 0){
+        if(pointsScored > 0){
+            self.hasHammer = @"red";
+        }
+    } else if ([scoringTeam isEqual:@"red"]){
         [self.redScore addToScore:pointsScored AtEnd:self.end];
         [self.yellowScore addToScore:0 AtEnd:self.end];
-        self.hasHammer = @"yellow";
+        if(pointsScored > 0){
+            self.hasHammer = @"yellow";
+        }
     }
     [self incrementEnd];
 }

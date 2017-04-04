@@ -32,6 +32,8 @@
 -(void)setupNewGame{
     self.game = [[Game alloc] init];
     [self initScoreBoardArray];
+    [self.yellowTeamLabel setText:_yellowTeamName];
+    [self.redTeamLabel setText:_redTeamName];
     [self updateDisplay];
 }
 
@@ -52,21 +54,35 @@
 }
 
 - (IBAction)finishEndButton:(id)sender {
-    if(!self.game.inProgress){
+    if(self.game.inProgress){
+        int currentEnd = self.game.end;
+        NSString *scoringTeam = @"";
+        int tempScore = 0;
+        if(self.redTempScore > self.yellowTempScore || (self.redTempScore == self.yellowTempScore && [self.game.hasHammer isEqual:@"red"])){
+            scoringTeam = @"red";
+            tempScore = self.redTempScore;
+        } else if (self.yellowTempScore > self.redTempScore || (self.yellowTempScore == self.redTempScore && [self.game.hasHammer isEqual:@"yellow"])){
+            scoringTeam = @"yellow";
+            tempScore = self.yellowTempScore;
+        }
+        [self.game finishEnd:scoringTeam : tempScore];
+        if (tempScore > 0){
+            [self updateScoreBoard:scoringTeam :currentEnd];
+        }
+    } else {
+        [self showGameOverAlert];
     }
-    int currentEnd = self.game.end;
-    NSString *scoringTeam = @"";
-    int tempScore = 0;
-    if(self.redTempScore > self.yellowTempScore || (self.redTempScore == self.yellowTempScore && [self.game.hasHammer isEqual:@"red"])){
-        scoringTeam = @"red";
-        tempScore = self.redTempScore;
-    } else if (self.yellowTempScore > self.redTempScore || (self.yellowTempScore == self.redTempScore && [self.game.hasHammer isEqual:@"yellow"])){
-        scoringTeam = @"yellow";
-        tempScore = self.yellowTempScore;
-    }
-    [self.game finishEnd:scoringTeam : tempScore];
-    [self updateScoreBoard:scoringTeam :currentEnd];
     [self updateDisplay];
+}
+
+-(void)showGameOverAlert{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Game Over!" message:@"Tap \"New Game\" to play again" preferredStyle:UIAlertViewStyleDefault];
+    UIAlertAction *dismissAction = [UIAlertAction actionWithTitle:@"Dimiss"
+                                                          style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+                                                              NSLog(@"You pressed dismiss");
+                                                          }];
+    [alert addAction:dismissAction];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 - (IBAction)resetButton:(id)sender {
     [self setupNewGame];
