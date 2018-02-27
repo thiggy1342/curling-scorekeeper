@@ -14,5 +14,6 @@
 @property (nonatomic, strong) NSMutableArray *scoreArray;
 
 -(void)addToScore:(int)toAdd AtEnd:(int)end;
+-(int)getScoreAtEnd:(int)end;
 
 @end

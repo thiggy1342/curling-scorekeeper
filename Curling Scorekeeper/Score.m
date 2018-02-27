@@ -26,6 +26,12 @@
     self.totalScore = [self totalScore];
 }
 
+-(int)getScoreAtEnd:(int) end {
+    int index = end-1;
+    int score = [[self.scoreArray objectAtIndex: index] integerValue];
+    return score;
+}
+
 -(int)totalScore {
     int totalScore = 0;
     for (NSNumber *endScore in self.scoreArray) {
