@@ -55,24 +55,14 @@
 
 - (IBAction)finishEndButton:(id)sender {
     if(self.game.inProgress){
-        int currentEnd = self.game.end;
-        NSString *scoringTeam = @"";
-        int tempScore = 0;
-        if(self.redTempScore > self.yellowTempScore || (self.redTempScore == self.yellowTempScore && [self.game.hasHammer isEqual:@"red"])){
-            scoringTeam = @"red";
-            tempScore = self.redTempScore;
-        } else if (self.yellowTempScore > self.redTempScore || (self.yellowTempScore == self.redTempScore && [self.game.hasHammer isEqual:@"yellow"])){
-            scoringTeam = @"yellow";
-            tempScore = self.yellowTempScore;
+        [self.game finishEnd: self.redTempScore :self.yellowTempScore];
+        if(self.redTempScore == self.yellowTempScore == 0){
+            [self updateScoreBoard];
         }
-        [self.game finishEnd:scoringTeam : tempScore];
-        if (tempScore > 0){
-            [self updateScoreBoard:scoringTeam :currentEnd];
-        }
+        [self updateDisplay];
     } else {
         [self showGameOverAlert];
     }
-    [self updateDisplay];
 }
 
 -(void)showGameOverAlert{
@@ -88,22 +78,26 @@
     [self setupNewGame];
 }
 
--(void)updateScoreBoard: (NSString*)scoringTeam : (int)end {
-    int row;
+-(void)updateScoreBoard {
+    int scoreRow;
     int hammerRow;
-    NSString *hammerString = @"*";
+    NSString *hammerString = @"🔨";
     int totalScore;
-    if ([scoringTeam isEqualToString:@"yellow"]){
-        row = 0;
+    if ([self.game.hasHammer isEqualToString:@"red"]){
+        scoreRow = 0;
         hammerRow = 2;
         totalScore = self.game.yellowScore.totalScore;
     } else {
-        row = 2;
+        scoreRow = 2;
         hammerRow = 0;
         totalScore = self.game.redScore.totalScore;
     }
-    [self.scoreBoardArray[totalScore] replaceObjectAtIndex:row withObject:[NSString stringWithFormat:@"%i",end]];
-    [self.scoreBoardArray[0] replaceObjectAtIndex:row withObject:@""];
+    
+    // extends scoreboard if score is going to be larger than currently displayed
+    [self extendScoreboardTo: totalScore];
+    
+    [self.scoreBoardArray[totalScore] replaceObjectAtIndex:scoreRow withObject:[NSString stringWithFormat:@"%i",self.game.end-1]];
+    [self.scoreBoardArray[0] replaceObjectAtIndex:scoreRow withObject:@""];
     [self.scoreBoardArray[0] replaceObjectAtIndex:hammerRow withObject:hammerString];
 }
 
@@ -154,6 +148,18 @@
     self.redTempScore = 0;
     [self.yellowTempScoreLabel setText:@"0"];
     [self.redTempScoreLabel setText:@"0"];
+}
+
+-(void)extendScoreboardTo:(int) totalColumns {
+    int currentColumns = [self.scoreBoardArray count];
+    if(totalColumns > currentColumns - 1){
+        for (int i = currentColumns; i < totalColumns + 1; i++){
+            NSString *columnNumber = [NSString stringWithFormat:@"%i", i];
+            NSMutableArray *columnArray = [[NSMutableArray alloc] initWithObjects:@"",columnNumber,@"", nil];
+            [self.scoreBoardArray insertObject:columnArray atIndex:i];
+        }
+        [self updateDisplay];
+    }
 }
 
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
