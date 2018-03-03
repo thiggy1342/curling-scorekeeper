@@ -25,6 +25,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *yellowTeamLabel;
 @property (nonatomic, strong) NSString *redTeamName;
 @property (strong, nonatomic) IBOutlet UILabel *redTeamLabel;
+@property (strong, nonatomic) IBOutlet UILabel *finalScoreLabel;
 
 
 - (IBAction)incrementYellowTempScore:(id)sender;

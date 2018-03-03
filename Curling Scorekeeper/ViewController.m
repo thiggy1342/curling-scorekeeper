@@ -61,13 +61,14 @@
         }
         [self updateDisplay];
     } else {
+        [self.finalScoreLabel setText: @"Final"];
         [self showGameOverAlert];
     }
 }
 
 -(void)showGameOverAlert{
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Game Over!" message:@"Tap \"New Game\" to play again" preferredStyle:UIAlertViewStyleDefault];
-    UIAlertAction *dismissAction = [UIAlertAction actionWithTitle:@"Dimiss"
+    UIAlertAction *dismissAction = [UIAlertAction actionWithTitle:@"Dismiss"
                                                           style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                                                               NSLog(@"You pressed dismiss");
                                                           }];
