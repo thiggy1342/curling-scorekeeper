@@ -7,13 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Score.h"
 
 @interface Game : NSObject
 
 @property (nonatomic) bool inProgress;
-@property (strong, nonatomic) Score *yellowScore;
-@property (strong, nonatomic) Score *redScore;
+@property (nonatomic) int yellowScoreTotal;
+@property (nonatomic, strong) NSMutableArray *yellowScoreArray;
+@property (nonatomic) int redScoreTotal;
+@property (nonatomic, strong) NSMutableArray *redScoreArray;
+@property (nonatomic, strong) NSString *yellowTeamName;
+@property (nonatomic, strong) NSString *redTeamName;
 @property (nonatomic) int end;
 @property (strong, nonatomic) NSString *hasHammer;
 

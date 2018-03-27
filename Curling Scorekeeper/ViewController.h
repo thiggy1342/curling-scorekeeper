@@ -7,25 +7,30 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GameMO+CoreDataClass.h"
 #import "Game.h"
-#import "Score.h"
 #import "SetupViewController.h"
+#import "GamesListTableViewController.h"
+#import "DataController.h"
 
 @interface ViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource>;
 
 @property (strong, nonatomic) IBOutlet UILabel *yellowScoreLabel;
 @property (strong, nonatomic) IBOutlet UILabel *redScoreLabel;
-@property (strong, nonatomic) Game *game;
 @property (strong, nonatomic) IBOutlet UILabel *yellowTempScoreLabel;
 @property (strong, nonatomic) IBOutlet UILabel *redTempScoreLabel;
-@property (nonatomic) int yellowTempScore;
-@property (nonatomic) int redTempScore;
-
-@property (nonatomic,strong) NSString *yellowTeamName;
 @property (strong, nonatomic) IBOutlet UILabel *yellowTeamLabel;
-@property (nonatomic, strong) NSString *redTeamName;
 @property (strong, nonatomic) IBOutlet UILabel *redTeamLabel;
 @property (strong, nonatomic) IBOutlet UILabel *finalScoreLabel;
+
+@property (strong, nonatomic) GameMO *gameMO;
+@property (strong, nonatomic) Game *game;
+@property (nonatomic) int yellowTempScore;
+@property (nonatomic) int redTempScore;
+@property (nonatomic,strong) NSString *yellowTeamName;
+@property (nonatomic, strong) NSString *redTeamName;
+@property (strong, nonatomic) NSManagedObjectContext *context;
+
 
 
 - (IBAction)incrementYellowTempScore:(id)sender;
@@ -35,6 +40,8 @@
 - (IBAction)decrementRedTempScore:(id)sender;
 
 - (IBAction)finishEndButton:(id)sender;
+
+- (IBAction)save:(id)sender;
 
 @end
 

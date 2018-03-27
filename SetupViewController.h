@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreData/CoreData.h>
 #import "ViewController.h"
 
 @interface SetupViewController : UIViewController <UITextFieldDelegate>
@@ -14,8 +15,8 @@
 @property (strong, nonatomic) IBOutlet UITextField *yellowTeamNameField;
 @property (strong, nonatomic) IBOutlet UITextField *redTeamNameField;
 
-
 @property (nonatomic, strong) NSString *yellowTeamName;
 @property (nonatomic, strong) NSString *redTeamName;
+@property (nonatomic, strong) NSManagedObjectContext *context;
 
 @end
