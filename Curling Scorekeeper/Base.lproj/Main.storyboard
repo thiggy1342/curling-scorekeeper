@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="U8t-op-UrG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="aIE-OZ-At3">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ljo-eg-Ugc">
-                                <rect key="frame" x="132" y="359" width="150" height="41"/>
+                                <rect key="frame" x="132" y="315" width="150" height="41"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="Zdi-VK-iDI"/>
@@ -42,7 +42,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="center" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Yellow Team Name" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="5ZU-o2-Z0F">
-                                <rect key="frame" x="86" y="136" width="242" height="33"/>
+                                <rect key="frame" x="86" y="92" width="242" height="33"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <accessibility key="accessibilityConfiguration" hint="Yellow Team Name"/>
                                 <constraints>
@@ -81,7 +81,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zqa-0g-ewz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-634.39999999999998" y="138.98050974512745"/>
+            <point key="canvasLocation" x="-813" y="1096"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -349,19 +349,17 @@
                             <constraint firstItem="Dp0-UI-jSY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="25" id="9ml-PG-7uC"/>
                             <constraint firstItem="e5r-xp-Lk7" firstAttribute="centerY" secondItem="qMe-ba-RbD" secondAttribute="centerY" id="Ap8-Sa-MPK"/>
                             <constraint firstItem="qMe-ba-RbD" firstAttribute="top" secondItem="hu0-Xc-0Ix" secondAttribute="bottom" id="AtV-sF-b1F"/>
-                            <constraint firstItem="69o-yG-8R5" firstAttribute="top" relation="greaterThanOrEqual" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="Br3-Fr-K3W"/>
                             <constraint firstItem="dhh-28-PeK" firstAttribute="width" secondItem="kye-Lo-QlC" secondAttribute="width" id="Ckx-5n-vbR"/>
                             <constraint firstItem="Pn3-jC-ZfM" firstAttribute="top" secondItem="dhh-28-PeK" secondAttribute="bottom" priority="748" constant="50" id="Cqk-EP-PmG"/>
                             <constraint firstItem="qMe-ba-RbD" firstAttribute="centerX" secondItem="hu0-Xc-0Ix" secondAttribute="centerX" id="De4-uQ-sNg"/>
                             <constraint firstItem="kye-Lo-QlC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="25" id="EVy-SV-dJX"/>
-                            <constraint firstItem="69o-yG-8R5" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" priority="750" constant="30" id="Fg9-IF-RZz"/>
+                            <constraint firstItem="69o-yG-8R5" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" priority="750" constant="30" id="GAx-F7-OPa"/>
                             <constraint firstAttribute="trailingMargin" secondItem="6oy-8b-Rs6" secondAttribute="trailing" id="I4p-om-Cwq"/>
                             <constraint firstItem="dhh-28-PeK" firstAttribute="centerX" secondItem="kye-Lo-QlC" secondAttribute="centerX" id="JIL-Pj-cL0"/>
-                            <constraint firstItem="hu0-Xc-0Ix" firstAttribute="top" relation="greaterThanOrEqual" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="JNA-By-xIH"/>
                             <constraint firstItem="PvB-qU-aS8" firstAttribute="leading" secondItem="Pn3-jC-ZfM" secondAttribute="trailing" constant="54" id="JXr-tR-pGJ"/>
                             <constraint firstItem="69o-yG-8R5" firstAttribute="centerY" secondItem="hu0-Xc-0Ix" secondAttribute="centerY" id="Mm1-yP-rVg"/>
                             <constraint firstItem="Dp0-UI-jSY" firstAttribute="centerX" secondItem="kye-Lo-QlC" secondAttribute="centerX" id="Ozj-Yw-pUP"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="6oy-8b-Rs6" secondAttribute="bottom" constant="20" id="PL5-4X-9Ib"/>
+                            <constraint firstItem="69o-yG-8R5" firstAttribute="top" relation="greaterThanOrEqual" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="UGm-Q7-12c"/>
                             <constraint firstAttribute="trailingMargin" secondItem="VLF-SX-3D9" secondAttribute="trailing" constant="25" id="UpR-iY-895"/>
                             <constraint firstItem="dhh-28-PeK" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="25" id="W39-MB-XGp"/>
                             <constraint firstItem="q9t-ZB-xhk" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="WgY-rJ-Nif"/>
@@ -369,19 +367,21 @@
                             <constraint firstItem="e5r-xp-Lk7" firstAttribute="centerX" secondItem="69o-yG-8R5" secondAttribute="centerX" id="ZGX-6B-EMT"/>
                             <constraint firstItem="q9t-ZB-xhk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="bWQ-4s-iRj"/>
                             <constraint firstItem="kye-Lo-QlC" firstAttribute="top" secondItem="q9t-ZB-xhk" secondAttribute="bottom" priority="750" constant="45" id="fWV-Um-6oj"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="dXy-2s-cfl" secondAttribute="bottom" constant="20" id="fiW-ze-w1x"/>
                             <constraint firstItem="VLF-SX-3D9" firstAttribute="centerY" secondItem="dhh-28-PeK" secondAttribute="centerY" id="hLa-1H-ARf"/>
                             <constraint firstItem="xWQ-Of-FZB" firstAttribute="centerX" secondItem="XeW-Im-4UV" secondAttribute="centerX" id="hWE-pr-147"/>
                             <constraint firstItem="dhh-28-PeK" firstAttribute="top" secondItem="Dp0-UI-jSY" secondAttribute="bottom" id="ha6-v6-Awk"/>
                             <constraint firstAttribute="trailingMargin" secondItem="xWQ-Of-FZB" secondAttribute="trailing" constant="25" id="iN5-yV-cyb"/>
                             <constraint firstItem="dXy-2s-cfl" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="16" id="ih7-7O-BUe"/>
                             <constraint firstItem="qMe-ba-RbD" firstAttribute="width" secondItem="hu0-Xc-0Ix" secondAttribute="width" id="m0b-JV-2lZ"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="dXy-2s-cfl" secondAttribute="bottom" constant="20" id="mbC-uJ-H9I"/>
                             <constraint firstItem="4Uc-pY-8sk" firstAttribute="centerY" secondItem="Pn3-jC-ZfM" secondAttribute="centerY" id="nHK-4K-6j4"/>
                             <constraint firstItem="hu0-Xc-0Ix" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="peQ-6O-RGt"/>
                             <constraint firstAttribute="trailing" secondItem="69o-yG-8R5" secondAttribute="trailing" constant="20" id="qnd-2v-IF1"/>
                             <constraint firstItem="xWQ-Of-FZB" firstAttribute="centerY" secondItem="Dp0-UI-jSY" secondAttribute="centerY" id="rhG-Ny-2zy"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="6oy-8b-Rs6" secondAttribute="bottom" constant="20" id="vL1-Fl-E34"/>
                             <constraint firstItem="PvB-qU-aS8" firstAttribute="centerY" secondItem="Pn3-jC-ZfM" secondAttribute="centerY" id="wgS-Bo-bdz"/>
                             <constraint firstItem="XeW-Im-4UV" firstAttribute="centerY" secondItem="kye-Lo-QlC" secondAttribute="centerY" id="xlS-Gl-ufL"/>
+                            <constraint firstItem="hu0-Xc-0Ix" firstAttribute="top" relation="greaterThanOrEqual" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="ynl-j2-BGB"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -399,7 +399,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.23188405797103" y="138.58695652173915"/>
+            <point key="canvasLocation" x="-961" y="-38"/>
         </scene>
         <!--Games List Table View Controller-->
         <scene sceneID="M0i-gQ-s4u">
@@ -426,6 +426,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="viewSavedGameSegue" id="YEf-r5-M8V"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -456,7 +459,7 @@
                 <collectionViewController id="JmN-ju-W3h" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2iq-8E-zqd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3083" y="142"/>
+            <point key="canvasLocation" x="3389.8550724637685" y="141.84782608695653"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="HJK-Th-xEq">
@@ -478,6 +481,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="4FY-O1-hay"/>
+        <segue reference="qeL-6d-jHU"/>
+        <segue reference="tI9-pZ-zSs"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -8,6 +8,7 @@
 //
 
 #import "GameMO+CoreDataClass.h"
+@class Game;
 
 
 NS_ASSUME_NONNULL_BEGIN
@@ -15,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GameMO (CoreDataProperties)
 
 + (NSFetchRequest<GameMO *> *)fetchRequest;
+
+-(void)updateFromGameInstance: (Game*) game;
 
 @property (nullable, nonatomic, copy) NSDate *dateCreated;
 @property (nullable, nonatomic, copy) NSDate *dateUpdated;

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+@class GameMO;
 
 @interface Game : NSObject
 
@@ -20,9 +21,9 @@
 @property (nonatomic) int end;
 @property (strong, nonatomic) NSString *hasHammer;
 
-//-(void)finishEnd:(NSString*) scoringTeam :(int) pointsScored;
 -(void)finishEnd:(int) redPointsScored :(int) yellowPointsScored;
 -(void)incrementEnd;
 -(NSString*)currentlyLeading;
+-(id)initWithManagedObject: (GameMO*)gameMO;
 
 @end

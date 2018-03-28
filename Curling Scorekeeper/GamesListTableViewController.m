@@ -23,7 +23,14 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
+    //create new context if one doesn't already exist
+    if (!_context) {
+        DataController *dataController = [[DataController alloc]init];
+        self.context = [dataController managedObjectContext];
+    }
+    
     // fetch data for load
+
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"GameMO"];
     NSError *error = nil;
     NSArray *response = [_context executeFetchRequest:request error:&error];
@@ -97,6 +104,12 @@
     if ([segue.identifier isEqualToString:@"addGameSegue"]) {
         SetupViewController *destController = segue.destinationViewController;
         destController.context = _context;
+    }
+    if ([segue.identifier isEqualToString:@"viewSavedGameSegue"]) {
+        ViewController *destController = segue.destinationViewController;
+        destController.context = _context;
+        GameMO *gameMO = [_gamesArray objectAtIndex: [self.tableView indexPathForSelectedRow].row];
+        destController.gameMO = gameMO;
     }
 }
 @end

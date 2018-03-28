@@ -11,7 +11,6 @@
 @interface ViewController ()
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) NSMutableArray *scoreBoardArray;
-@property (nonatomic, strong) DataController *dataController;
 @end
 
 @implementation ViewController
@@ -19,9 +18,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.dataController = [[DataController alloc]init];
-    self.context = [_dataController managedObjectContext];
+    // set up context if not defined
+    if (!_context) {
+        DataController *dataController = [[DataController alloc]init];
+        self.context = [dataController managedObjectContext];
+    }
     
+    // set up collection view for scoreboard
     UINib *cellNib = [UINib nibWithNibName:@"NibCell" bundle:nil];
     [self.collectionView registerNib:cellNib forCellWithReuseIdentifier:@"cvCell"];
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
@@ -30,7 +33,12 @@
     [self.collectionView setPagingEnabled:NO];
     [self.collectionView setCollectionViewLayout:flowLayout];
     
-    [self setupNewGame];
+    // set up new game if one doesn't exist, otherwise load saved game
+    if (!_gameMO) {
+       [self setupNewGame];
+    } else {
+        [self loadSavedGame];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -49,11 +57,18 @@
     self.game.yellowTeamName = _yellowTeamName;
     self.game.redTeamName = _redTeamName;
     
-    //setup the ui
+    //setup scoreboard
     [self initScoreBoardArray];
-    [self.yellowTeamLabel setText: self.game.yellowTeamName];
-    [self.redTeamLabel setText: self.game.redTeamName];
-    [self updateDisplay];
+    
+    //setup the ui
+    [self initializeUI];
+}
+
+-(void)loadSavedGame {
+    self.game = [[Game alloc] initWithManagedObject: _gameMO];
+    [self initScoreBoardArray];
+    [self populateScoreBoardArrayFromSavedGame];
+    [self initializeUI];
 }
 
 #pragma mark - BUTTON ACTION METHODS
@@ -72,19 +87,11 @@
 
 - (IBAction)save:(id)sender {
     // Jankily assigning game model values to the managed object
-    _gameMO.yellowTeamName = _game.yellowTeamName;
-    _gameMO.yellowScoreTotal = _game.yellowScoreTotal;
-    _gameMO.yellowScoreArray = _game.yellowScoreArray;
-    _gameMO.redTeamName = _game.redTeamName;
-    _gameMO.redScoreTotal = _game.redScoreTotal;
-    _gameMO.redScoreArray = _game.redScoreArray;
-    _gameMO.end = _game.end;
-    _gameMO.hasHammer = _game.hasHammer;
-    _gameMO.inProgress = _game.inProgress;
+    [_gameMO updateFromGameInstance: _game];
     
     // Saving changes in the context
     NSError *error = nil;
-    [[_dataController managedObjectContext] save:&error];
+    [_context save:&error];
     if (error) {
         NSLog(@"output:%@", error);
     }
@@ -136,6 +143,24 @@
     }
 }
 
+-(void)populateScoreBoardArrayFromSavedGame {
+    int runningYellowScore = 0;
+    int runningRedScore = 0;
+    for(int i = 0; i < _game.yellowScoreArray.count; i++){
+        int yellowEndScore = [_game.yellowScoreArray[i] intValue];
+        int redEndScore = [_game.redScoreArray[i] intValue];
+        if (yellowEndScore > redEndScore) {
+            runningYellowScore += yellowEndScore;
+            NSMutableArray *replacementColumn = [[NSMutableArray alloc] initWithObjects:[NSString stringWithFormat:@"%i",i+1],[NSString stringWithFormat:@"%i",runningYellowScore],@"", nil];
+            [_scoreBoardArray replaceObjectAtIndex:runningYellowScore withObject:replacementColumn];
+        } else if (redEndScore > yellowEndScore) {
+            runningRedScore += redEndScore;
+            NSMutableArray *replacementColumn = [[NSMutableArray alloc] initWithObjects:@"",[NSString stringWithFormat:@"%i",runningRedScore],[NSString stringWithFormat:@"%i",i+1], nil];
+            [_scoreBoardArray replaceObjectAtIndex:runningRedScore withObject:replacementColumn];
+        }
+    }
+}
+
 -(void)updateScoreBoard {
     int scoreRow;
     int hammerRow;
@@ -172,6 +197,12 @@
 }
 
 #pragma mark - OTHER DISPLAY METHODS
+-(void)initializeUI {
+    [self.yellowTeamLabel setText: self.game.yellowTeamName];
+    [self.redTeamLabel setText: self.game.redTeamName];
+    [self updateDisplay];
+}
+
 - (void)updateDisplay {
     [_yellowScoreLabel setText: [NSString stringWithFormat:@"%i",self.game.yellowScoreTotal]];
     [_redScoreLabel setText: [NSString stringWithFormat:@"%i",self.game.redScoreTotal]];
@@ -216,7 +247,7 @@
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    NSMutableArray *sectionArray = [self.scoreBoardArray objectAtIndex:section];
+    NSMutableArray *sectionArray = [_scoreBoardArray objectAtIndex:section];
     return [sectionArray count];
 }
 

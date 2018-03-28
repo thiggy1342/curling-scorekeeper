@@ -7,6 +7,7 @@
 //
 
 #import "Game.h"
+#import "GameMO+CoreDataClass.h"
 
 @implementation Game
 
@@ -21,6 +22,22 @@
         self.end = 1;
         self.inProgress = true;
         self.hasHammer = @"yellow";
+    }
+    return self;
+}
+
+-(id)initWithManagedObject:(GameMO *)gameMO {
+    self = super.init;
+    if(self) {
+        self.yellowScoreTotal   = gameMO.yellowScoreTotal;
+        self.yellowScoreArray   = gameMO.yellowScoreArray;
+        self.yellowTeamName     = gameMO.yellowTeamName;
+        self.redScoreTotal      = gameMO.redScoreTotal;
+        self.redScoreArray      = gameMO.redScoreArray;
+        self.redTeamName        = gameMO.redTeamName;
+        self.end                = gameMO.end;
+        self.inProgress         = gameMO.inProgress;
+        self.hasHammer          = gameMO.hasHammer;
     }
     return self;
 }
