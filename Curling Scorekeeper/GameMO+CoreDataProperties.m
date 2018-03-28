@@ -16,6 +16,11 @@
 	return [[NSFetchRequest alloc] initWithEntityName:@"Game"];
 }
 
+-(void)awakeFromInsert {
+    [super awakeFromInsert];
+    self.dateCreated = [NSDate date];
+}
+
 -(void)updateFromGameInstance: (Game*) game {
         self.yellowTeamName     = game.yellowTeamName;
         self.yellowScoreTotal   = game.yellowScoreTotal;

@@ -32,10 +32,11 @@
     // fetch data for load
 
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"GameMO"];
+    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"dateCreated" ascending:YES]];
     NSError *error = nil;
     NSMutableArray *response = [[_context executeFetchRequest:request error:&error] mutableCopy];
     if (error) {
-        NSLog(@"Failed to fetch for this reason: &@", error.description);
+        NSLog(@"Failed to fetch for this reason: %@",error.description);
     }
     _gamesArray = response;
     
