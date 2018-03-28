@@ -29,11 +29,18 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    //setupNewGameSegue
     if ([segue.identifier isEqualToString:@"setupNewGameSegue"]) {
         ViewController *destController = segue.destinationViewController;
         destController.context = _context;
         destController.yellowTeamName = _yellowTeamNameField.text;
         destController.redTeamName = _redTeamNameField.text;
+    }
+    
+    //cancelCreateSegue
+    if ([segue.identifier isEqualToString:@"cancelCreateSegue"]){
+        GamesListTableViewController *destController = segue.destinationViewController;
+        destController.context = _context;
     }
 }
 

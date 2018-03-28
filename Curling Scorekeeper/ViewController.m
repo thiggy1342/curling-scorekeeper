@@ -85,22 +85,6 @@
     }
 }
 
-- (IBAction)save:(id)sender {
-    // Jankily assigning game model values to the managed object
-    [_gameMO updateFromGameInstance: _game];
-    
-    // Saving changes in the context
-    NSError *error = nil;
-    [_context save:&error];
-    if (error) {
-        NSLog(@"output:%@", error);
-    }
-}
-
-- (IBAction)resetButton:(id)sender {
-    [self setupNewGame];
-}
-
 - (IBAction)incrementRedTempScore:(id)sender {
     if(self.redTempScore < 8){
         self.redTempScore++;
@@ -144,6 +128,9 @@
 }
 
 -(void)populateScoreBoardArrayFromSavedGame {
+    // extend the scoreboard to the largest size before we modify the data source
+    [self extendScoreboardTo:MAX(_game.yellowScoreTotal,_game.redScoreTotal)];
+    
     int runningYellowScore = 0;
     int runningRedScore = 0;
     for(int i = 0; i < _game.yellowScoreArray.count; i++){
@@ -151,12 +138,12 @@
         int redEndScore = [_game.redScoreArray[i] intValue];
         if (yellowEndScore > redEndScore) {
             runningYellowScore += yellowEndScore;
-            NSMutableArray *replacementColumn = [[NSMutableArray alloc] initWithObjects:[NSString stringWithFormat:@"%i",i+1],[NSString stringWithFormat:@"%i",runningYellowScore],@"", nil];
-            [_scoreBoardArray replaceObjectAtIndex:runningYellowScore withObject:replacementColumn];
+            NSMutableArray *workingColumn = _scoreBoardArray[runningRedScore];
+            [workingColumn replaceObjectAtIndex:0 withObject:[NSString stringWithFormat:@"%i",i+1]];
         } else if (redEndScore > yellowEndScore) {
             runningRedScore += redEndScore;
-            NSMutableArray *replacementColumn = [[NSMutableArray alloc] initWithObjects:@"",[NSString stringWithFormat:@"%i",runningRedScore],[NSString stringWithFormat:@"%i",i+1], nil];
-            [_scoreBoardArray replaceObjectAtIndex:runningRedScore withObject:replacementColumn];
+            NSMutableArray *workingColumn = _scoreBoardArray[runningRedScore];
+            [workingColumn replaceObjectAtIndex:2 withObject:[NSString stringWithFormat:@"%i",i+1]];
         }
     }
 }
@@ -234,9 +221,15 @@
 
 #pragma mark - SEGUE METHODS
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"viewSavedSegue"]) {
-        UINavigationController *navController = segue.destinationViewController;
-        GamesListTableViewController *destController = navController.topViewController;
+    if ([segue.identifier isEqualToString:@"doneSegue"]) {
+        // Update GameMO values before save
+        [_gameMO updateFromGameInstance: _game];
+        NSError *error = nil;
+        [_context save:&error];
+        if(error){
+            NSLog(@"Unable to save game: %@", error.description);
+        }
+        GamesListTableViewController *destController = segue.destinationViewController;
         destController.context = _context;
     }
 }

@@ -31,17 +31,11 @@
 @property (nonatomic, strong) NSString *redTeamName;
 @property (strong, nonatomic) NSManagedObjectContext *context;
 
-
-
 - (IBAction)incrementYellowTempScore:(id)sender;
 - (IBAction)decrementYellowTempScore:(id)sender;
-
 - (IBAction)incrementRedTempScore:(id)sender;
 - (IBAction)decrementRedTempScore:(id)sender;
-
 - (IBAction)finishEndButton:(id)sender;
-
-- (IBAction)save:(id)sender;
 
 @end
 

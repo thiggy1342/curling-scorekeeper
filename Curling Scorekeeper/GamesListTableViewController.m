@@ -33,7 +33,7 @@
 
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"GameMO"];
     NSError *error = nil;
-    NSArray *response = [_context executeFetchRequest:request error:&error];
+    NSMutableArray *response = [[_context executeFetchRequest:request error:&error] mutableCopy];
     if (error) {
         NSLog(@"Failed to fetch for this reason: &@", error.description);
     }
@@ -73,17 +73,31 @@
 }
 */
 
-/*
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
+        
+        // delete from context
+        [self deleteGameAtIndex:indexPath.row];
+        
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
+
+-(void)deleteGameAtIndex:(NSInteger*) index {
+    GameMO *gameMO = [_gamesArray objectAtIndex: index];
+    [_context deleteObject:gameMO];
+    NSError *error = nil;
+    [_context save:&error];
+    if (error) {
+        NSLog(@"Error deleting GameMO: %@",error.description);
+    }
+    [_gamesArray removeObjectAtIndex:index];
+}
 
 /*
 // Override to support rearranging the table view.

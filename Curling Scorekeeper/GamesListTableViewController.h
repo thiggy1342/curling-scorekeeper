@@ -14,6 +14,6 @@
 @interface GamesListTableViewController : UITableViewController
 
 @property (nonatomic, strong) NSManagedObjectContext *context;
-@property (nonatomic, strong) NSArray *gamesArray;
+@property (nonatomic, strong) NSMutableArray *gamesArray;
 
 @end
