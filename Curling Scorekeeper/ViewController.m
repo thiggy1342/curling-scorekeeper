@@ -138,7 +138,7 @@
         int redEndScore = [_game.redScoreArray[i] intValue];
         if (yellowEndScore > redEndScore) {
             runningYellowScore += yellowEndScore;
-            NSMutableArray *workingColumn = _scoreBoardArray[runningRedScore];
+            NSMutableArray *workingColumn = _scoreBoardArray[runningYellowScore];
             [workingColumn replaceObjectAtIndex:0 withObject:[NSString stringWithFormat:@"%i",i+1]];
         } else if (redEndScore > yellowEndScore) {
             runningRedScore += redEndScore;
