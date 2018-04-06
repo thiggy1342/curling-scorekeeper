@@ -60,7 +60,7 @@
 		663654E81E82191D00509769 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		663654F41E84B41800509769 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Game.h; path = "Curling Scorekeeper/Game.h"; sourceTree = SOURCE_ROOT; };
 		663654F51E84B41800509769 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Game.m; path = "Curling Scorekeeper/Game.m"; sourceTree = SOURCE_ROOT; };
-		66C9847B1E92A54A006DB5B4 /* NibCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = NibCell.xib; path = ../NibCell.xib; sourceTree = "<group>"; };
+		66C9847B1E92A54A006DB5B4 /* NibCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NibCell.xib; sourceTree = "<group>"; };
 		6D80E8AE206AA7F800A96355 /* CurlingScorekeeper.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CurlingScorekeeper.xcdatamodel; sourceTree = "<group>"; };
 		6D80E8BC206AA98900A96355 /* GameMO+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GameMO+CoreDataProperties.h"; sourceTree = "<group>"; };
 		6D80E8BD206AA98900A96355 /* GameMO+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GameMO+CoreDataClass.h"; sourceTree = "<group>"; };
