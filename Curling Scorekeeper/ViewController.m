@@ -80,7 +80,6 @@
         }
         [self updateDisplay];
     } else {
-        [self.finalScoreLabel setText: @"Final"];
         [self showGameOverAlert];
     }
 }
@@ -219,6 +218,9 @@
     [_redScoreLabel setText: [NSString stringWithFormat:@"%i",self.game.redScoreTotal]];
     [self.collectionView reloadData];
     [self resetTempScore];
+    if(_game.inProgress == NO){
+        [self.finalScoreLabel setText: @"Final"];
+    }
 }
 
 -(void)updateTempScore{
