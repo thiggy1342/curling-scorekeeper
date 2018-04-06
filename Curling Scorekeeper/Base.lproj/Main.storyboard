@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="aIE-OZ-At3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="aIE-OZ-At3">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -263,9 +263,9 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MDo-FJ-1ru">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MDo-FJ-1ru">
                                 <rect key="frame" x="176" y="54" width="62" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" label="finalScoreLabel"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -298,11 +298,13 @@
                             <constraint firstItem="Pn3-jC-ZfM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6BB-Vk-Obm"/>
                             <constraint firstItem="Dp0-UI-jSY" firstAttribute="top" secondItem="kye-Lo-QlC" secondAttribute="bottom" id="7Yj-WH-FrP"/>
                             <constraint firstAttribute="trailingMargin" secondItem="XeW-Im-4UV" secondAttribute="trailing" constant="25" id="7qV-cx-GMc"/>
+                            <constraint firstItem="MDo-FJ-1ru" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8cg-vN-him"/>
                             <constraint firstItem="Dp0-UI-jSY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="25" id="9ml-PG-7uC"/>
                             <constraint firstItem="e5r-xp-Lk7" firstAttribute="centerY" secondItem="qMe-ba-RbD" secondAttribute="centerY" id="Ap8-Sa-MPK"/>
                             <constraint firstItem="qMe-ba-RbD" firstAttribute="top" secondItem="hu0-Xc-0Ix" secondAttribute="bottom" id="AtV-sF-b1F"/>
                             <constraint firstItem="dhh-28-PeK" firstAttribute="width" secondItem="kye-Lo-QlC" secondAttribute="width" id="Ckx-5n-vbR"/>
                             <constraint firstItem="Pn3-jC-ZfM" firstAttribute="top" secondItem="dhh-28-PeK" secondAttribute="bottom" priority="748" constant="50" id="Cqk-EP-PmG"/>
+                            <constraint firstItem="MDo-FJ-1ru" firstAttribute="centerY" secondItem="hu0-Xc-0Ix" secondAttribute="centerY" id="DWL-gX-aNO"/>
                             <constraint firstItem="qMe-ba-RbD" firstAttribute="centerX" secondItem="hu0-Xc-0Ix" secondAttribute="centerX" id="De4-uQ-sNg"/>
                             <constraint firstItem="kye-Lo-QlC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="25" id="EVy-SV-dJX"/>
                             <constraint firstItem="69o-yG-8R5" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" priority="750" constant="30" id="GAx-F7-OPa"/>
