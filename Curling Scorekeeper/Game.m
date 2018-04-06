@@ -7,14 +7,18 @@
 //
 
 #import "Game.h"
+#import "GameMO+CoreDataClass.h"
 
 @implementation Game
+
 -(id)init
 {
     self = super.init;
     if(self){
-        self.yellowScore = [[Score alloc]init];
-        self.redScore = [[Score alloc]init];
+        self.yellowScoreTotal = 0;
+        self.yellowScoreArray = [[NSMutableArray alloc] init];
+        self.redScoreTotal = 0;
+        self.redScoreArray = [[NSMutableArray alloc] init];
         self.end = 1;
         self.inProgress = true;
         self.hasHammer = @"yellow";
@@ -22,33 +26,46 @@
     return self;
 }
 
-//-(void)finishEnd:(NSString*) scoringTeam :(int) pointsScored {
-//    if([scoringTeam isEqual: @"yellow"]){
-//        [self.yellowScore addToScore:pointsScored AtEnd:self.end];
-//        [self.redScore addToScore:0 AtEnd:self.end];
-//        if(pointsScored > 0){
-//            self.hasHammer = @"red";
-//        }
-//    } else if ([scoringTeam isEqual:@"red"]){
-//        [self.redScore addToScore:pointsScored AtEnd:self.end];
-//        [self.yellowScore addToScore:0 AtEnd:self.end];
-//        if(pointsScored > 0){
-//            self.hasHammer = @"yellow";
-//        }
-//    }
-//    [self incrementEnd];
-//}
+-(id)initWithManagedObject:(GameMO *)gameMO {
+    self = super.init;
+    if(self) {
+        self.yellowScoreTotal   = gameMO.yellowScoreTotal;
+        self.yellowScoreArray   = gameMO.yellowScoreArray;
+        self.yellowTeamName     = gameMO.yellowTeamName;
+        self.redScoreTotal      = gameMO.redScoreTotal;
+        self.redScoreArray      = gameMO.redScoreArray;
+        self.redTeamName        = gameMO.redTeamName;
+        self.end                = gameMO.end;
+        self.inProgress         = gameMO.inProgress;
+        self.hasHammer          = gameMO.hasHammer;
+    }
+    return self;
+}
 
 -(void)finishEnd:(int) redPointsScored :(int) yellowPointsScored {
     // Update scores
-    [self.yellowScore addToScore:yellowPointsScored AtEnd:self.end];
-    [self.redScore addToScore:redPointsScored AtEnd:self.end];
+    [self addToYellowScore:yellowPointsScored];
+    [self addToRedScore:redPointsScored];
     
     // Update hammer
     [self updateHammer:redPointsScored :yellowPointsScored];
     
     // Update end
     [self incrementEnd];
+}
+
+-(void)addToYellowScore:(int)toAdd {
+    NSNumber *tempScore = [NSNumber numberWithInt:toAdd];
+    int index = self.end-1;
+    self.yellowScoreArray[index] = tempScore;
+    self.yellowScoreTotal += [tempScore integerValue];
+}
+
+-(void)addToRedScore:(int)toAdd {
+    NSNumber *tempScore = [NSNumber numberWithInt:toAdd];
+    int index = self.end-1;
+    self.redScoreArray[index] = tempScore;
+    self.redScoreTotal += [tempScore integerValue];
 }
 
 -(void)updateHammer:(int) redPointsScored :(int) yellowPointsScored {
@@ -64,16 +81,16 @@
 }
 
 -(void)incrementEnd {
-    if((self.end == 10 && self.yellowScore.totalScore != self.redScore.totalScore) || self.end == 11){
+    if((self.end == 10 && self.yellowScoreTotal != self.redScoreTotal) || self.end == 11){
         self.inProgress = false;
     }
     self.end ++;
 }
 
 -(NSString*)currentlyLeading {
-    if(self.yellowScore > self.redScore){
+    if(self.yellowScoreTotal > self.redScoreTotal){
         return @"yellow";
-    } else if (self.redScore > self.yellowScore){
+    } else if (self.redScoreTotal > self.yellowScoreTotal){
         return @"red";
     } else {
         return @"tie";

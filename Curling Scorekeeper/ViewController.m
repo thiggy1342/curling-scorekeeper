@@ -18,6 +18,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // set up context if not defined
+    if (!_context) {
+        DataController *dataController = [[DataController alloc]init];
+        self.context = [dataController managedObjectContext];
+    }
+    
+    // set up collection view for scoreboard
     UINib *cellNib = [UINib nibWithNibName:@"NibCell" bundle:nil];
     [self.collectionView registerNib:cellNib forCellWithReuseIdentifier:@"cvCell"];
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
@@ -26,25 +33,11 @@
     [self.collectionView setPagingEnabled:NO];
     [self.collectionView setCollectionViewLayout:flowLayout];
     
-    [self setupNewGame];
-}
-
--(void)setupNewGame{
-    self.game = [[Game alloc] init];
-    [self initScoreBoardArray];
-    [self.yellowTeamLabel setText:_yellowTeamName];
-    [self.redTeamLabel setText:_redTeamName];
-    [self updateDisplay];
-}
-
--(void)initScoreBoardArray{
-    self.scoreBoardArray = [[NSMutableArray alloc] init];
-    NSMutableArray *teamLabelArray = [[NSMutableArray alloc] initWithObjects:@"",@"H",@"", nil];
-    [self.scoreBoardArray addObject:teamLabelArray];
-    for (int i = 1; i < 13; i++){
-        NSString *columnNumber = [NSString stringWithFormat:@"%i", i];
-        NSMutableArray *columnArray = [[NSMutableArray alloc] initWithObjects:@"",columnNumber,@"", nil];
-        [self.scoreBoardArray insertObject:columnArray atIndex:i];
+    // set up new game if one doesn't exist, otherwise load saved game
+    if (!_gameMO) {
+       [self setupNewGame];
+    } else {
+        [self loadSavedGame];
     }
 }
 
@@ -53,9 +46,35 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - SETUP METHOD
+-(void)setupNewGame{
+    // setup new game object
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"GameMO" inManagedObjectContext:_context];
+    self.gameMO = [[GameMO alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:_context];
+    
+    //setup the game
+    self.game = [[Game alloc]init];
+    self.game.yellowTeamName = _yellowTeamName;
+    self.game.redTeamName = _redTeamName;
+    
+    //setup scoreboard
+    [self initScoreBoardArray];
+    
+    //setup the ui
+    [self initializeUI];
+}
+
+-(void)loadSavedGame {
+    self.game = [[Game alloc] initWithManagedObject: _gameMO];
+    [self initScoreBoardArray];
+    [self populateScoreBoardArrayFromSavedGame];
+    [self initializeUI];
+}
+
+#pragma mark - BUTTON ACTION METHODS
 - (IBAction)finishEndButton:(id)sender {
     if(self.game.inProgress){
-        [self.game finishEnd: self.redTempScore :self.yellowTempScore];
+        [self.game finishEnd: _redTempScore :_yellowTempScore];
         if(self.redTempScore == self.yellowTempScore == 0){
             [self updateScoreBoard];
         }
@@ -64,42 +83,6 @@
         [self.finalScoreLabel setText: @"Final"];
         [self showGameOverAlert];
     }
-}
-
--(void)showGameOverAlert{
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Game Over!" message:@"Tap \"New Game\" to play again" preferredStyle:UIAlertViewStyleDefault];
-    UIAlertAction *dismissAction = [UIAlertAction actionWithTitle:@"Dismiss"
-                                                          style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
-                                                              NSLog(@"You pressed dismiss");
-                                                          }];
-    [alert addAction:dismissAction];
-    [self presentViewController:alert animated:YES completion:nil];
-}
-- (IBAction)resetButton:(id)sender {
-    [self setupNewGame];
-}
-
--(void)updateScoreBoard {
-    int scoreRow;
-    int hammerRow;
-    NSString *hammerString = @"🔨";
-    int totalScore;
-    if ([self.game.hasHammer isEqualToString:@"red"]){
-        scoreRow = 0;
-        hammerRow = 2;
-        totalScore = self.game.yellowScore.totalScore;
-    } else {
-        scoreRow = 2;
-        hammerRow = 0;
-        totalScore = self.game.redScore.totalScore;
-    }
-    
-    // extends scoreboard if score is going to be larger than currently displayed
-    [self extendScoreboardTo: totalScore];
-    
-    [self.scoreBoardArray[totalScore] replaceObjectAtIndex:scoreRow withObject:[NSString stringWithFormat:@"%i",self.game.end-1]];
-    [self.scoreBoardArray[0] replaceObjectAtIndex:scoreRow withObject:@""];
-    [self.scoreBoardArray[0] replaceObjectAtIndex:hammerRow withObject:hammerString];
 }
 
 - (IBAction)incrementRedTempScore:(id)sender {
@@ -132,9 +115,84 @@
     }
 }
 
+#pragma mark - SCOREBOARD METHODS
+-(void)initScoreBoardArray{
+    self.scoreBoardArray = [[NSMutableArray alloc] init];
+    NSMutableArray *teamLabelArray = [[NSMutableArray alloc] initWithObjects:@"",@"H",@"", nil];
+    [self.scoreBoardArray addObject:teamLabelArray];
+    for (int i = 1; i < 13; i++){
+        NSString *columnNumber = [NSString stringWithFormat:@"%i", i];
+        NSMutableArray *columnArray = [[NSMutableArray alloc] initWithObjects:@"",columnNumber,@"", nil];
+        [self.scoreBoardArray insertObject:columnArray atIndex:i];
+    }
+}
+
+-(void)populateScoreBoardArrayFromSavedGame {
+    // extend the scoreboard to the largest size before we modify the data source
+    [self extendScoreboardTo:MAX(_game.yellowScoreTotal,_game.redScoreTotal)];
+    
+    int runningYellowScore = 0;
+    int runningRedScore = 0;
+    for(int i = 0; i < _game.yellowScoreArray.count; i++){
+        int yellowEndScore = [_game.yellowScoreArray[i] intValue];
+        int redEndScore = [_game.redScoreArray[i] intValue];
+        if (yellowEndScore > redEndScore) {
+            runningYellowScore += yellowEndScore;
+            NSMutableArray *workingColumn = _scoreBoardArray[runningYellowScore];
+            [workingColumn replaceObjectAtIndex:0 withObject:[NSString stringWithFormat:@"%i",i+1]];
+        } else if (redEndScore > yellowEndScore) {
+            runningRedScore += redEndScore;
+            NSMutableArray *workingColumn = _scoreBoardArray[runningRedScore];
+            [workingColumn replaceObjectAtIndex:2 withObject:[NSString stringWithFormat:@"%i",i+1]];
+        }
+    }
+}
+
+-(void)updateScoreBoard {
+    int scoreRow;
+    int hammerRow;
+    NSString *hammerString = @"🔨";
+    int totalScore;
+    if ([self.game.hasHammer isEqualToString:@"red"]){
+        scoreRow = 0;
+        hammerRow = 2;
+        totalScore = self.game.yellowScoreTotal;
+    } else {
+        scoreRow = 2;
+        hammerRow = 0;
+        totalScore = self.game.redScoreTotal;
+    }
+    
+    // extends scoreboard if score is going to be larger than currently displayed
+    [self extendScoreboardTo: totalScore];
+    
+    [self.scoreBoardArray[totalScore] replaceObjectAtIndex:scoreRow withObject:[NSString stringWithFormat:@"%i",self.game.end-1]];
+    [self.scoreBoardArray[0] replaceObjectAtIndex:scoreRow withObject:@""];
+    [self.scoreBoardArray[0] replaceObjectAtIndex:hammerRow withObject:hammerString];
+}
+
+-(void)extendScoreboardTo:(int) totalColumns {
+    int currentColumns = [self.scoreBoardArray count];
+    if(totalColumns > currentColumns - 1){
+        for (int i = currentColumns; i < totalColumns + 1; i++){
+            NSString *columnNumber = [NSString stringWithFormat:@"%i", i];
+            NSMutableArray *columnArray = [[NSMutableArray alloc] initWithObjects:@"",columnNumber,@"", nil];
+            [self.scoreBoardArray insertObject:columnArray atIndex:i];
+        }
+        [self updateDisplay];
+    }
+}
+
+#pragma mark - OTHER DISPLAY METHODS
+-(void)initializeUI {
+    [self.yellowTeamLabel setText: self.game.yellowTeamName];
+    [self.redTeamLabel setText: self.game.redTeamName];
+    [self updateDisplay];
+}
+
 - (void)updateDisplay {
-    [_yellowScoreLabel setText: [NSString stringWithFormat:@"%i",self.game.yellowScore.totalScore]];
-    [_redScoreLabel setText: [NSString stringWithFormat:@"%i",self.game.redScore.totalScore]];
+    [_yellowScoreLabel setText: [NSString stringWithFormat:@"%i",self.game.yellowScoreTotal]];
+    [_redScoreLabel setText: [NSString stringWithFormat:@"%i",self.game.redScoreTotal]];
     [self.collectionView reloadData];
     [self resetTempScore];
 }
@@ -151,24 +209,38 @@
     [self.redTempScoreLabel setText:@"0"];
 }
 
--(void)extendScoreboardTo:(int) totalColumns {
-    int currentColumns = [self.scoreBoardArray count];
-    if(totalColumns > currentColumns - 1){
-        for (int i = currentColumns; i < totalColumns + 1; i++){
-            NSString *columnNumber = [NSString stringWithFormat:@"%i", i];
-            NSMutableArray *columnArray = [[NSMutableArray alloc] initWithObjects:@"",columnNumber,@"", nil];
-            [self.scoreBoardArray insertObject:columnArray atIndex:i];
+-(void)showGameOverAlert{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Game Over!" message:@"Tap \"New Game\" to play again" preferredStyle:UIAlertViewStyleDefault];
+    UIAlertAction *dismissAction = [UIAlertAction actionWithTitle:@"Dismiss"
+                                                            style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+                                                                NSLog(@"You pressed dismiss");
+                                                            }];
+    [alert addAction:dismissAction];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+#pragma mark - SEGUE METHODS
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"doneSegue"]) {
+        // Update GameMO values before save
+        [_gameMO updateFromGameInstance: _game];
+        NSError *error = nil;
+        [_context save:&error];
+        if(error){
+            NSLog(@"Unable to save game: %@", error.description);
         }
-        [self updateDisplay];
+        GamesListTableViewController *destController = segue.destinationViewController;
+        destController.context = _context;
     }
 }
 
+#pragma mark - COLLECTIONVIEW METHODS
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return [self.scoreBoardArray count];
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    NSMutableArray *sectionArray = [self.scoreBoardArray objectAtIndex:section];
+    NSMutableArray *sectionArray = [_scoreBoardArray objectAtIndex:section];
     return [sectionArray count];
 }
 
