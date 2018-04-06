@@ -131,6 +131,9 @@
     // extend the scoreboard to the largest size before we modify the data source
     [self extendScoreboardTo:MAX(_game.yellowScoreTotal,_game.redScoreTotal)];
     
+    // sets the hammer indicator for the current end
+    [self updateHammerIndicator];
+    
     int runningYellowScore = 0;
     int runningRedScore = 0;
     for(int i = 0; i < _game.yellowScoreArray.count; i++){
@@ -148,27 +151,48 @@
     }
 }
 
+-(void)updateHammerIndicator {
+    int hammerRow;
+    int noHammerRow;
+    NSString *hammerString = @"🔨";
+    
+    // determine which row to place the hammerString on
+    if([_game.hasHammer isEqualToString:@"red"]){
+        // Red scores and hammer are on the bottom row of the scoreboard
+        hammerRow = 2;
+        noHammerRow = 0;
+    } else {
+        // Yellow scores and hammer are on the top row of the scoreboard
+        hammerRow = 0;
+        noHammerRow = 2;
+    }
+    
+    // remove the hammer from the row that doesn't have hammer
+    [self.scoreBoardArray[0] replaceObjectAtIndex:noHammerRow withObject:@""];\
+    // and add it to the row that does
+    [self.scoreBoardArray[0] replaceObjectAtIndex:hammerRow withObject:hammerString];
+}
+
 -(void)updateScoreBoard {
     int scoreRow;
-    int hammerRow;
-    NSString *hammerString = @"🔨";
     int totalScore;
+    
+    // determine scoring team by the team that doesn't have hammer
     if ([self.game.hasHammer isEqualToString:@"red"]){
         scoreRow = 0;
-        hammerRow = 2;
         totalScore = self.game.yellowScoreTotal;
     } else {
         scoreRow = 2;
-        hammerRow = 0;
         totalScore = self.game.redScoreTotal;
     }
     
     // extends scoreboard if score is going to be larger than currently displayed
     [self extendScoreboardTo: totalScore];
     
+    // update the hammer indicator
+    [self updateHammerIndicator];
+    
     [self.scoreBoardArray[totalScore] replaceObjectAtIndex:scoreRow withObject:[NSString stringWithFormat:@"%i",self.game.end-1]];
-    [self.scoreBoardArray[0] replaceObjectAtIndex:scoreRow withObject:@""];
-    [self.scoreBoardArray[0] replaceObjectAtIndex:hammerRow withObject:hammerString];
 }
 
 -(void)extendScoreboardTo:(int) totalColumns {
