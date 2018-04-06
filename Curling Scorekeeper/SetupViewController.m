@@ -1,0 +1,59 @@
+//
+//  SetupViewController.m
+//  Curling Scorekeeper
+//
+//  Created by Adam Thigpen on 4/3/17.
+//  Copyright © 2017 Daniel Thigpen. All rights reserved.
+//
+
+#import "SetupViewController.h"
+
+@interface SetupViewController ()
+
+@end
+
+@implementation SetupViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    _redTeamNameField.delegate = self;
+    _yellowTeamNameField.delegate = self;
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    //setupNewGameSegue
+    if ([segue.identifier isEqualToString:@"setupNewGameSegue"]) {
+        ViewController *destController = segue.destinationViewController;
+        destController.context = _context;
+        destController.yellowTeamName = _yellowTeamNameField.text;
+        destController.redTeamName = _redTeamNameField.text;
+    }
+    
+    //cancelCreateSegue
+    if ([segue.identifier isEqualToString:@"cancelCreateSegue"]){
+        GamesListTableViewController *destController = segue.destinationViewController;
+        destController.context = _context;
+    }
+}
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    return YES;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
+
+
+@end
