@@ -17,7 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.navigationItem.hidesBackButton = YES;
     // set up context if not defined
     if (!_context) {
         DataController *dataController = [[DataController alloc]init];
@@ -82,6 +82,27 @@
     } else {
         [self showGameOverAlert];
     }
+}
+
+- (IBAction)shake:(id)sender {
+    if(self.game.inProgress){
+        [self confirmEndGame];
+    } else {
+        [self showGameOverAlert];
+    }
+}
+
+- (void)confirmEndGame {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Game Over!" message:@"Tap \"New Game\" to play again" preferredStyle:UIAlertViewStyleDefault];
+    UIAlertAction *dismissAction = [UIAlertAction actionWithTitle:@"Cancel"
+        style:UIAlertActionStyleCancel handler:^(UIAlertAction * action) {}];
+    UIAlertAction *acceptAction = [UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        self.game.inProgress = NO;
+        [self updateDisplay];
+    }];
+    [alert addAction:dismissAction];
+    [alert addAction:acceptAction];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (IBAction)incrementRedTempScore:(id)sender {
@@ -236,11 +257,9 @@
 }
 
 -(void)showGameOverAlert{
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Game Over!" message:@"Tap \"New Game\" to play again" preferredStyle:UIAlertViewStyleDefault];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Game Over!" message:@"Tap \"done\" to create a new game" preferredStyle:UIAlertViewStyleDefault];
     UIAlertAction *dismissAction = [UIAlertAction actionWithTitle:@"Dismiss"
-                                                            style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
-                                                                NSLog(@"You pressed dismiss");
-                                                            }];
+        style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {}];
     [alert addAction:dismissAction];
     [self presentViewController:alert animated:YES completion:nil];
 }
