@@ -96,7 +96,7 @@
 }
 
 - (void)confirmEndGame {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Game Over!" message:@"Tap \"New Game\" to play again" preferredStyle:UIAlertViewStyleDefault];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Are you sure?" message:@"Selecting \"Yes\" will end the game early." preferredStyle:UIAlertViewStyleDefault];
     UIAlertAction *dismissAction = [UIAlertAction actionWithTitle:@"Cancel"
         style:UIAlertActionStyleCancel handler:^(UIAlertAction * action) {}];
     UIAlertAction *acceptAction = [UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
