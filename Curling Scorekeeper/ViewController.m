@@ -17,7 +17,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    // hides back button in nav bar
     self.navigationItem.hidesBackButton = YES;
+    
     // set up context if not defined
     if (!_context) {
         DataController *dataController = [[DataController alloc]init];

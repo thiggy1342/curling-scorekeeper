@@ -104,7 +104,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yellow Score" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hu0-Xc-0Ix">
-                                <rect key="frame" x="20" y="74" width="124" height="46.5"/>
+                                <rect key="frame" x="20" y="40" width="124" height="46.5"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <nil key="textColor"/>
@@ -116,7 +116,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qMe-ba-RbD">
-                                <rect key="frame" x="20" y="120.5" width="124" height="29"/>
+                                <rect key="frame" x="20" y="86.5" width="124" height="29"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <nil key="textColor"/>
@@ -207,7 +207,7 @@
                                 </connections>
                             </button>
                             <collectionView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="TopLeft" verticalHuggingPriority="1000" layoutMarginsFollowReadableWidth="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="q9t-ZB-xhk">
-                                <rect key="frame" x="16" y="181.5" width="343" height="182"/>
+                                <rect key="frame" x="16" y="147.5" width="343" height="182"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="182" id="N9A-Rl-RDg"/>
@@ -242,7 +242,7 @@
                                 </connections>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e5r-xp-Lk7">
-                                <rect key="frame" x="242" y="120.5" width="104" height="29"/>
+                                <rect key="frame" x="242" y="86.5" width="104" height="29"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="104" id="hAR-Bi-wmz"/>
@@ -252,7 +252,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Red Score" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="69o-yG-8R5">
-                                <rect key="frame" x="231.5" y="74.5" width="123.5" height="46.5"/>
+                                <rect key="frame" x="231.5" y="40.5" width="123.5" height="46.5"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <nil key="textColor"/>
@@ -264,7 +264,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MDo-FJ-1ru">
-                                <rect key="frame" x="187.5" y="97.5" width="0.0" height="0.0"/>
+                                <rect key="frame" x="187.5" y="63.5" width="0.0" height="0.0"/>
                                 <accessibility key="accessibilityConfiguration" label="finalScoreLabel"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -357,7 +357,7 @@
                             <constraint firstItem="hu0-Xc-0Ix" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.07" id="tK5-6J-fdT"/>
                             <constraint firstItem="69o-yG-8R5" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="33%" id="vF6-EM-qTU"/>
                             <constraint firstItem="XeW-Im-4UV" firstAttribute="centerY" secondItem="kye-Lo-QlC" secondAttribute="centerY" id="xlS-Gl-ufL"/>
-                            <constraint firstItem="hu0-Xc-0Ix" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="ynl-j2-BGB"/>
+                            <constraint firstItem="hu0-Xc-0Ix" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="ynl-j2-BGB"/>
                             <constraint firstItem="dhh-28-PeK" firstAttribute="height" secondItem="kye-Lo-QlC" secondAttribute="height" id="zmc-77-xyb"/>
                         </constraints>
                     </view>
@@ -502,7 +502,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Yg6-3q-1D2"/>
-        <segue reference="vo7-6j-fOo"/>
-        <segue reference="WSw-In-JSr"/>
+        <segue reference="aTn-gA-aI9"/>
+        <segue reference="XGU-kX-VO2"/>
     </inferredMetricsTieBreakers>
 </document>

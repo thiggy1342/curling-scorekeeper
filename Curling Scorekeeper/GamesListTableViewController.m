@@ -17,11 +17,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    // hides back button in nav bar
+    self.navigationItem.hidesBackButton = YES;
     
     //create new context if one doesn't already exist
     if (!_context) {
