@@ -42,24 +42,18 @@
                                     <segue destination="BYZ-38-t0r" kind="show" identifier="setupNewGameSegue" id="IFc-di-0AG"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="center" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Yellow Team Name" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="5ZU-o2-Z0F">
-                                <rect key="frame" x="66.5" y="136" width="242" height="33"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="center" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Yellow Team Name" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="5ZU-o2-Z0F">
+                                <rect key="frame" x="64" y="136" width="247.5" height="33"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <accessibility key="accessibilityConfiguration" hint="Yellow Team Name"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="y9V-eJ-NIM"/>
-                                </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="  Red Team Name  " textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Gpz-Y8-CKf">
-                                <rect key="frame" x="86" y="189" width="242" height="33"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="center" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Red Team Name" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Gpz-Y8-CKf">
+                                <rect key="frame" x="64.5" y="233" width="247.5" height="33"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <accessibility key="accessibilityConfiguration" hint="Red Team Name"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="wiF-rz-6rR"/>
-                                </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
@@ -68,8 +62,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Gpz-Y8-CKf" firstAttribute="top" secondItem="5ZU-o2-Z0F" secondAttribute="bottom" constant="64" id="8rv-mt-9E5"/>
+                            <constraint firstItem="Gpz-Y8-CKf" firstAttribute="width" secondItem="5ZU-o2-Z0F" secondAttribute="width" id="AOG-uf-Ejq"/>
                             <constraint firstItem="ljo-eg-Ugc" firstAttribute="top" secondItem="Gpz-Y8-CKf" secondAttribute="bottom" constant="93" id="Dp1-zk-1MF"/>
                             <constraint firstItem="5ZU-o2-Z0F" firstAttribute="centerX" secondItem="DOC-PP-dj4" secondAttribute="centerX" id="GZY-mj-xDD"/>
+                            <constraint firstItem="5ZU-o2-Z0F" firstAttribute="width" secondItem="DOC-PP-dj4" secondAttribute="width" multiplier="0.66" id="OrJ-jb-ipQ"/>
                             <constraint firstItem="ljo-eg-Ugc" firstAttribute="centerX" secondItem="DOC-PP-dj4" secondAttribute="centerX" id="d5f-sm-Y5y"/>
                             <constraint firstItem="Gpz-Y8-CKf" firstAttribute="centerX" secondItem="DOC-PP-dj4" secondAttribute="centerX" id="fMO-qN-4G1"/>
                             <constraint firstItem="5ZU-o2-Z0F" firstAttribute="top" secondItem="EVN-yA-fYP" secondAttribute="bottom" constant="72" id="w37-Qm-6nm"/>
@@ -501,8 +497,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Yg6-3q-1D2"/>
-        <segue reference="vo7-6j-fOo"/>
+        <segue reference="Wc1-eZ-Wuv"/>
+        <segue reference="IFc-di-0AG"/>
         <segue reference="XGU-kX-VO2"/>
     </inferredMetricsTieBreakers>
 </document>
