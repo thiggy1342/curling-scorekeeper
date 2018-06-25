@@ -260,7 +260,7 @@
 }
 
 -(void)showGameOverAlert{
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Game Over!" message:@"Tap \"done\" to create a new game" preferredStyle:UIAlertViewStyleDefault];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Game Over!" message:@"Tap \"Done\" to create a new game" preferredStyle:UIAlertViewStyleDefault];
     UIAlertAction *dismissAction = [UIAlertAction actionWithTitle:@"Dismiss"
         style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {}];
     [alert addAction:dismissAction];
