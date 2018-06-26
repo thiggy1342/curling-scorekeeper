@@ -21,6 +21,9 @@
     // hides back button in nav bar
     self.navigationItem.hidesBackButton = YES;
     
+    // Add title to the nav bar
+    self.navigationItem.title = @"Update Game";
+    
     // set up context if not defined
     if (!_context) {
         DataController *dataController = [[DataController alloc]init];
