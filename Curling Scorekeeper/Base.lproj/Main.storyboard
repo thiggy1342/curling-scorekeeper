@@ -266,7 +266,7 @@
                                 <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Pn3-jC-ZfM">
+                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Pn3-jC-ZfM">
                                 <rect key="frame" x="131.5" y="431" width="112.5" height="83.5"/>
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
                                 <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
@@ -283,7 +283,7 @@
                                     <action selector="finishEndButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oFt-b0-N4a"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZP4-iT-nJy">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZP4-iT-nJy">
                                 <rect key="frame" x="131.5" y="531.5" width="112.5" height="46.5"/>
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
@@ -497,7 +497,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Wc1-eZ-Wuv"/>
+        <segue reference="Yg6-3q-1D2"/>
         <segue reference="IFc-di-0AG"/>
         <segue reference="XGU-kX-VO2"/>
     </inferredMetricsTieBreakers>
