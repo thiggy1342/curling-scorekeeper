@@ -1,0 +1,581 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		661394931E932B2400EE3671 /* SetupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 661394921E932B2400EE3671 /* SetupViewController.m */; };
+		663654C31E82191D00509769 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 663654C21E82191D00509769 /* main.m */; };
+		663654C61E82191D00509769 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 663654C51E82191D00509769 /* AppDelegate.m */; };
+		663654C91E82191D00509769 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 663654C81E82191D00509769 /* ViewController.m */; };
+		663654CC1E82191D00509769 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 663654CA1E82191D00509769 /* Main.storyboard */; };
+		663654CE1E82191D00509769 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 663654CD1E82191D00509769 /* Assets.xcassets */; };
+		663654DC1E82191D00509769 /* Curling_ScorekeeperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 663654DB1E82191D00509769 /* Curling_ScorekeeperTests.m */; };
+		663654E71E82191D00509769 /* Curling_ScorekeeperUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 663654E61E82191D00509769 /* Curling_ScorekeeperUITests.m */; };
+		663654F61E84B41800509769 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 663654F51E84B41800509769 /* Game.m */; };
+		66C9847C1E92A54A006DB5B4 /* NibCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66C9847B1E92A54A006DB5B4 /* NibCell.xib */; };
+		6D80E8AF206AA7F800A96355 /* CurlingScorekeeper.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6D80E8AD206AA7F800A96355 /* CurlingScorekeeper.xcdatamodeld */; };
+		6D80E8C1206AA98900A96355 /* GameMO+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D80E8BF206AA98900A96355 /* GameMO+CoreDataProperties.m */; };
+		6D80E8C5206AAEF300A96355 /* DataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D80E8C4206AAEF300A96355 /* DataController.m */; };
+		6D80E8C8206AD4B300A96355 /* GamesListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D80E8C7206AD4B300A96355 /* GamesListTableViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		663654D81E82191D00509769 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 663654B61E82191D00509769 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 663654BD1E82191D00509769;
+			remoteInfo = "Curling Scorekeeper";
+		};
+		663654E31E82191D00509769 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 663654B61E82191D00509769 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 663654BD1E82191D00509769;
+			remoteInfo = "Curling Scorekeeper";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		661394911E932B2400EE3671 /* SetupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetupViewController.h; sourceTree = "<group>"; };
+		661394921E932B2400EE3671 /* SetupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetupViewController.m; sourceTree = "<group>"; };
+		663654BE1E82191D00509769 /* Curling Scorekeeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Curling Scorekeeper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		663654C21E82191D00509769 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		663654C41E82191D00509769 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		663654C51E82191D00509769 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		663654C71E82191D00509769 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		663654C81E82191D00509769 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		663654CB1E82191D00509769 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		663654CD1E82191D00509769 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		663654D21E82191D00509769 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		663654D71E82191D00509769 /* Curling ScorekeeperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Curling ScorekeeperTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		663654DB1E82191D00509769 /* Curling_ScorekeeperTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Curling_ScorekeeperTests.m; sourceTree = "<group>"; };
+		663654DD1E82191D00509769 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		663654E21E82191D00509769 /* Curling ScorekeeperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Curling ScorekeeperUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		663654E61E82191D00509769 /* Curling_ScorekeeperUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Curling_ScorekeeperUITests.m; sourceTree = "<group>"; };
+		663654E81E82191D00509769 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		663654F41E84B41800509769 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Game.h; path = "Curling Scorekeeper/Game.h"; sourceTree = SOURCE_ROOT; };
+		663654F51E84B41800509769 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Game.m; path = "Curling Scorekeeper/Game.m"; sourceTree = SOURCE_ROOT; };
+		66C9847B1E92A54A006DB5B4 /* NibCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NibCell.xib; sourceTree = "<group>"; };
+		6D80E8AE206AA7F800A96355 /* CurlingScorekeeper.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CurlingScorekeeper.xcdatamodel; sourceTree = "<group>"; };
+		6D80E8BC206AA98900A96355 /* GameMO+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GameMO+CoreDataProperties.h"; sourceTree = "<group>"; };
+		6D80E8BD206AA98900A96355 /* GameMO+CoreDataClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GameMO+CoreDataClass.h"; sourceTree = "<group>"; };
+		6D80E8BE206AA98900A96355 /* GameMO+CoreDataClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "GameMO+CoreDataClass.m"; sourceTree = "<group>"; };
+		6D80E8BF206AA98900A96355 /* GameMO+CoreDataProperties.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "GameMO+CoreDataProperties.m"; sourceTree = "<group>"; };
+		6D80E8C3206AAEF300A96355 /* DataController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataController.h; sourceTree = "<group>"; };
+		6D80E8C4206AAEF300A96355 /* DataController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataController.m; sourceTree = "<group>"; };
+		6D80E8C6206AD4B300A96355 /* GamesListTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GamesListTableViewController.h; sourceTree = "<group>"; };
+		6D80E8C7206AD4B300A96355 /* GamesListTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GamesListTableViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		663654BB1E82191D00509769 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		663654D41E82191D00509769 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		663654DF1E82191D00509769 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		663654B51E82191D00509769 = {
+			isa = PBXGroup;
+			children = (
+				6D80E8AD206AA7F800A96355 /* CurlingScorekeeper.xcdatamodeld */,
+				663654C01E82191D00509769 /* Curling Scorekeeper */,
+				663654DA1E82191D00509769 /* Curling ScorekeeperTests */,
+				663654E51E82191D00509769 /* Curling ScorekeeperUITests */,
+				663654BF1E82191D00509769 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		663654BF1E82191D00509769 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				663654BE1E82191D00509769 /* Curling Scorekeeper.app */,
+				663654D71E82191D00509769 /* Curling ScorekeeperTests.xctest */,
+				663654E21E82191D00509769 /* Curling ScorekeeperUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		663654C01E82191D00509769 /* Curling Scorekeeper */ = {
+			isa = PBXGroup;
+			children = (
+				6D80E8BC206AA98900A96355 /* GameMO+CoreDataProperties.h */,
+				6D80E8BD206AA98900A96355 /* GameMO+CoreDataClass.h */,
+				6D80E8BE206AA98900A96355 /* GameMO+CoreDataClass.m */,
+				6D80E8BF206AA98900A96355 /* GameMO+CoreDataProperties.m */,
+				66C9847B1E92A54A006DB5B4 /* NibCell.xib */,
+				663654F41E84B41800509769 /* Game.h */,
+				663654F51E84B41800509769 /* Game.m */,
+				663654C41E82191D00509769 /* AppDelegate.h */,
+				663654C51E82191D00509769 /* AppDelegate.m */,
+				663654C71E82191D00509769 /* ViewController.h */,
+				663654C81E82191D00509769 /* ViewController.m */,
+				663654CA1E82191D00509769 /* Main.storyboard */,
+				661394911E932B2400EE3671 /* SetupViewController.h */,
+				661394921E932B2400EE3671 /* SetupViewController.m */,
+				663654CD1E82191D00509769 /* Assets.xcassets */,
+				663654D21E82191D00509769 /* Info.plist */,
+				663654C11E82191D00509769 /* Supporting Files */,
+				6D80E8C3206AAEF300A96355 /* DataController.h */,
+				6D80E8C4206AAEF300A96355 /* DataController.m */,
+				6D80E8C6206AD4B300A96355 /* GamesListTableViewController.h */,
+				6D80E8C7206AD4B300A96355 /* GamesListTableViewController.m */,
+			);
+			path = "Curling Scorekeeper";
+			sourceTree = "<group>";
+		};
+		663654C11E82191D00509769 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				663654C21E82191D00509769 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		663654DA1E82191D00509769 /* Curling ScorekeeperTests */ = {
+			isa = PBXGroup;
+			children = (
+				663654DB1E82191D00509769 /* Curling_ScorekeeperTests.m */,
+				663654DD1E82191D00509769 /* Info.plist */,
+			);
+			path = "Curling ScorekeeperTests";
+			sourceTree = "<group>";
+		};
+		663654E51E82191D00509769 /* Curling ScorekeeperUITests */ = {
+			isa = PBXGroup;
+			children = (
+				663654E61E82191D00509769 /* Curling_ScorekeeperUITests.m */,
+				663654E81E82191D00509769 /* Info.plist */,
+			);
+			path = "Curling ScorekeeperUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		663654BD1E82191D00509769 /* Curling Scorekeeper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 663654EB1E82191D00509769 /* Build configuration list for PBXNativeTarget "Curling Scorekeeper" */;
+			buildPhases = (
+				663654BA1E82191D00509769 /* Sources */,
+				663654BB1E82191D00509769 /* Frameworks */,
+				663654BC1E82191D00509769 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Curling Scorekeeper";
+			productName = "Curling Scorekeeper";
+			productReference = 663654BE1E82191D00509769 /* Curling Scorekeeper.app */;
+			productType = "com.apple.product-type.application";
+		};
+		663654D61E82191D00509769 /* Curling ScorekeeperTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 663654EE1E82191D00509769 /* Build configuration list for PBXNativeTarget "Curling ScorekeeperTests" */;
+			buildPhases = (
+				663654D31E82191D00509769 /* Sources */,
+				663654D41E82191D00509769 /* Frameworks */,
+				663654D51E82191D00509769 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				663654D91E82191D00509769 /* PBXTargetDependency */,
+			);
+			name = "Curling ScorekeeperTests";
+			productName = "Curling ScorekeeperTests";
+			productReference = 663654D71E82191D00509769 /* Curling ScorekeeperTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		663654E11E82191D00509769 /* Curling ScorekeeperUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 663654F11E82191D00509769 /* Build configuration list for PBXNativeTarget "Curling ScorekeeperUITests" */;
+			buildPhases = (
+				663654DE1E82191D00509769 /* Sources */,
+				663654DF1E82191D00509769 /* Frameworks */,
+				663654E01E82191D00509769 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				663654E41E82191D00509769 /* PBXTargetDependency */,
+			);
+			name = "Curling ScorekeeperUITests";
+			productName = "Curling ScorekeeperUITests";
+			productReference = 663654E21E82191D00509769 /* Curling ScorekeeperUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		663654B61E82191D00509769 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Daniel Thigpen";
+				TargetAttributes = {
+					663654BD1E82191D00509769 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = C5FFXASN32;
+						ProvisioningStyle = Automatic;
+					};
+					663654D61E82191D00509769 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 663654BD1E82191D00509769;
+					};
+					663654E11E82191D00509769 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 663654BD1E82191D00509769;
+					};
+				};
+			};
+			buildConfigurationList = 663654B91E82191D00509769 /* Build configuration list for PBXProject "Curling Scorekeeper" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 663654B51E82191D00509769;
+			productRefGroup = 663654BF1E82191D00509769 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				663654BD1E82191D00509769 /* Curling Scorekeeper */,
+				663654D61E82191D00509769 /* Curling ScorekeeperTests */,
+				663654E11E82191D00509769 /* Curling ScorekeeperUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		663654BC1E82191D00509769 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				66C9847C1E92A54A006DB5B4 /* NibCell.xib in Resources */,
+				663654CE1E82191D00509769 /* Assets.xcassets in Resources */,
+				663654CC1E82191D00509769 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		663654D51E82191D00509769 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		663654E01E82191D00509769 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		663654BA1E82191D00509769 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				663654C91E82191D00509769 /* ViewController.m in Sources */,
+				6D80E8C8206AD4B300A96355 /* GamesListTableViewController.m in Sources */,
+				663654C61E82191D00509769 /* AppDelegate.m in Sources */,
+				663654C31E82191D00509769 /* main.m in Sources */,
+				661394931E932B2400EE3671 /* SetupViewController.m in Sources */,
+				6D80E8AF206AA7F800A96355 /* CurlingScorekeeper.xcdatamodeld in Sources */,
+				663654F61E84B41800509769 /* Game.m in Sources */,
+				6D80E8C1206AA98900A96355 /* GameMO+CoreDataProperties.m in Sources */,
+				6D80E8C5206AAEF300A96355 /* DataController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		663654D31E82191D00509769 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				663654DC1E82191D00509769 /* Curling_ScorekeeperTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		663654DE1E82191D00509769 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				663654E71E82191D00509769 /* Curling_ScorekeeperUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		663654D91E82191D00509769 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 663654BD1E82191D00509769 /* Curling Scorekeeper */;
+			targetProxy = 663654D81E82191D00509769 /* PBXContainerItemProxy */;
+		};
+		663654E41E82191D00509769 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 663654BD1E82191D00509769 /* Curling Scorekeeper */;
+			targetProxy = 663654E31E82191D00509769 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		663654CA1E82191D00509769 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				663654CB1E82191D00509769 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		663654E91E82191D00509769 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		663654EA1E82191D00509769 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		663654EC1E82191D00509769 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = C5FFXASN32;
+				INFOPLIST_FILE = "Curling Scorekeeper/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Daniel-Thigpen.Curling-Scorekeeper";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		663654ED1E82191D00509769 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = C5FFXASN32;
+				INFOPLIST_FILE = "Curling Scorekeeper/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Daniel-Thigpen.Curling-Scorekeeper";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		663654EF1E82191D00509769 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Curling ScorekeeperTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Daniel-Thigpen.Curling-ScorekeeperTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Curling Scorekeeper.app/Curling Scorekeeper";
+			};
+			name = Debug;
+		};
+		663654F01E82191D00509769 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Curling ScorekeeperTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Daniel-Thigpen.Curling-ScorekeeperTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Curling Scorekeeper.app/Curling Scorekeeper";
+			};
+			name = Release;
+		};
+		663654F21E82191D00509769 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Curling ScorekeeperUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Daniel-Thigpen.Curling-ScorekeeperUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Curling Scorekeeper";
+			};
+			name = Debug;
+		};
+		663654F31E82191D00509769 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Curling ScorekeeperUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Daniel-Thigpen.Curling-ScorekeeperUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Curling Scorekeeper";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		663654B91E82191D00509769 /* Build configuration list for PBXProject "Curling Scorekeeper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				663654E91E82191D00509769 /* Debug */,
+				663654EA1E82191D00509769 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		663654EB1E82191D00509769 /* Build configuration list for PBXNativeTarget "Curling Scorekeeper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				663654EC1E82191D00509769 /* Debug */,
+				663654ED1E82191D00509769 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		663654EE1E82191D00509769 /* Build configuration list for PBXNativeTarget "Curling ScorekeeperTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				663654EF1E82191D00509769 /* Debug */,
+				663654F01E82191D00509769 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		663654F11E82191D00509769 /* Build configuration list for PBXNativeTarget "Curling ScorekeeperUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				663654F21E82191D00509769 /* Debug */,
+				663654F31E82191D00509769 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		6D80E8AD206AA7F800A96355 /* CurlingScorekeeper.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				6D80E8AE206AA7F800A96355 /* CurlingScorekeeper.xcdatamodel */,
+			);
+			currentVersion = 6D80E8AE206AA7F800A96355 /* CurlingScorekeeper.xcdatamodel */;
+			path = CurlingScorekeeper.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 663654B61E82191D00509769 /* Project object */;
+}
