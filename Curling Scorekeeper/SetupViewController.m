@@ -16,8 +16,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    _redTeamNameField.delegate = self;
-    _yellowTeamNameField.delegate = self;
+    self.redTeamNameField.delegate = self;
+    self.yellowTeamNameField.delegate = self;
+    self.navigationItem.title = @"Set Up Game";
     
     // init haptic feedback objects
     self.notificationFeedback = [[UINotificationFeedbackGenerator alloc] init];
