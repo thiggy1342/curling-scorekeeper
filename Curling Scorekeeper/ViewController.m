@@ -325,11 +325,11 @@
     
     UIColor *cellColor = [[UIColor alloc]init];
     if(indexPath.row == 0){
-        cellColor = [UIColor yellowColor];
+        cellColor = [UIColor colorWithRed:1.00 green:1.00 blue:0.40 alpha:1.0];
     } else if (indexPath.row == 1){
         cellColor = [UIColor whiteColor];
     } else if (indexPath.row == 2){
-        cellColor = [UIColor redColor];
+        cellColor = [UIColor colorWithRed:1.00 green:0.20 blue:0.20 alpha:1.0];
     }
     cell.backgroundColor = cellColor;
     
