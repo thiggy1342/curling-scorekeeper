@@ -9,7 +9,7 @@
 #import "SetupViewController.h"
 
 @interface SetupViewController ()
-
+@property (strong, nonatomic) UINotificationFeedbackGenerator *notificationFeedback;
 @end
 
 @implementation SetupViewController
@@ -18,6 +18,9 @@
     [super viewDidLoad];
     _redTeamNameField.delegate = self;
     _yellowTeamNameField.delegate = self;
+    
+    // init haptic feedback objects
+    self.notificationFeedback = [[UINotificationFeedbackGenerator alloc] init];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -55,5 +58,7 @@
     return YES;
 }
 
-
+- (IBAction)startGameButton:(id)sender {
+    [self.notificationFeedback notificationOccurred:UINotificationFeedbackTypeSuccess];
+}
 @end

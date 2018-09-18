@@ -36,28 +36,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Curling Scorekeeper/ViewController.m"
-            timestampString = "541808466.215712"
+            timestampString = "558922409.747378"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
-            landmarkName = "-viewDidLoad"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Curling Scorekeeper/ViewController.m"
-            timestampString = "541808466.215888"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
-            landmarkName = "-finishEndButton:"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "-setupNewGame"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

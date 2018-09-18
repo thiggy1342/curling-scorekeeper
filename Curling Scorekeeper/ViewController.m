@@ -11,6 +11,8 @@
 @interface ViewController ()
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) NSMutableArray *scoreBoardArray;
+@property (strong, nonatomic) UISelectionFeedbackGenerator *buttonFeedback;
+@property (strong, nonatomic) UINotificationFeedbackGenerator *notificationFeedback;
 @end
 
 @implementation ViewController
@@ -29,6 +31,10 @@
         DataController *dataController = [[DataController alloc]init];
         self.context = [dataController managedObjectContext];
     }
+    
+    // set up haptic feedback objects
+    self.buttonFeedback = [[UISelectionFeedbackGenerator alloc] init];
+    self.notificationFeedback = [[UINotificationFeedbackGenerator alloc] init];
     
     // set up collection view for scoreboard
     UINib *cellNib = [UINib nibWithNibName:@"NibCell" bundle:nil];
@@ -79,6 +85,7 @@
 
 #pragma mark - BUTTON ACTION METHODS
 - (IBAction)finishEndButton:(id)sender {
+    [self.buttonFeedback selectionChanged];
     if(self.game.inProgress){
         [self.game finishEnd: _redTempScore :_yellowTempScore];
         if(self.redTempScore == self.yellowTempScore == 0){
@@ -91,6 +98,7 @@
 }
 
 - (IBAction)shake:(id)sender {
+    [self.buttonFeedback selectionChanged];
     if(self.game.inProgress){
         [self confirmEndGame];
     } else {
@@ -108,10 +116,15 @@
     }];
     [alert addAction:dismissAction];
     [alert addAction:acceptAction];
+    
+    // haptic alert
+    [self.notificationFeedback notificationOccurred:UINotificationFeedbackTypeWarning];
+    
     [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (IBAction)incrementRedTempScore:(id)sender {
+    [self.buttonFeedback selectionChanged];
     if(self.redTempScore < 8){
         self.redTempScore++;
         self.yellowTempScore = 0;
@@ -120,6 +133,7 @@
 }
 
 - (IBAction)decrementRedTempScore:(id)sender {
+    [self.buttonFeedback selectionChanged];
     if(self.redTempScore > 0){
         self.redTempScore--;
         [self updateTempScore];
@@ -127,6 +141,7 @@
 }
 
 - (IBAction)incrementYellowTempScore:(id)sender {
+    [self.buttonFeedback selectionChanged];
     if(self.yellowTempScore < 8){
         self.yellowTempScore++;
         self.redTempScore = 0;
@@ -135,6 +150,7 @@
 }
 
 - (IBAction)decrementYellowTempScore:(id)sender {
+    [self.buttonFeedback selectionChanged];
     if(self.yellowTempScore > 0){
         self.yellowTempScore--;
         [self updateTempScore];
@@ -267,6 +283,10 @@
     UIAlertAction *dismissAction = [UIAlertAction actionWithTitle:@"Dismiss"
         style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {}];
     [alert addAction:dismissAction];
+    
+    // error haptic feedback
+    [self.notificationFeedback notificationOccurred:UINotificationFeedbackTypeError];
+    
     [self presentViewController:alert animated:YES completion:nil];
 }
 
