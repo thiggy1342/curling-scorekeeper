@@ -92,6 +92,7 @@
             [self updateScoreBoard];
         }
         [self updateDisplay];
+        [self scrollToLatestScore];
     } else {
         [self showGameOverAlert];
     }
@@ -107,7 +108,7 @@
 }
 
 - (void)confirmEndGame {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Are you sure?" message:@"Selecting \"Yes\" will end the game early." preferredStyle:UIAlertViewStyleDefault];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Are you sure?" message:@"Selecting \"Yes\" will end the game early." preferredStyle: UIAlertViewStyleDefault];
     UIAlertAction *dismissAction = [UIAlertAction actionWithTitle:@"Cancel"
         style:UIAlertActionStyleCancel handler:^(UIAlertAction * action) {}];
     UIAlertAction *acceptAction = [UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
@@ -288,6 +289,17 @@
     [self.notificationFeedback notificationOccurred:UINotificationFeedbackTypeError];
     
     [self presentViewController:alert animated:YES completion:nil];
+}
+
+-(void)scrollToLatestScore {
+    NSIndexPath *indexPath;
+    // This method should be called after finishEnd is called on the game object, so we can use hammer to determine the team that didn't score last end
+    if ([self.game.hasHammer isEqualToString: @"red"]) {
+        indexPath = [NSIndexPath indexPathForRow:0 inSection: _game.yellowScoreTotal];
+    } else {
+       indexPath = [NSIndexPath indexPathForRow:0 inSection: _game.redScoreTotal];
+    }
+    [self.collectionView scrollToItemAtIndexPath: indexPath atScrollPosition: UICollectionViewScrollPositionCenteredHorizontally animated:YES];
 }
 
 #pragma mark - SEGUE METHODS
