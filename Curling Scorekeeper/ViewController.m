@@ -11,6 +11,8 @@
 @interface ViewController ()
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) NSMutableArray *scoreBoardArray;
+@property (strong, nonatomic) UISelectionFeedbackGenerator *buttonFeedback;
+@property (strong, nonatomic) UINotificationFeedbackGenerator *notificationFeedback;
 @end
 
 @implementation ViewController
@@ -29,6 +31,10 @@
         DataController *dataController = [[DataController alloc]init];
         self.context = [dataController managedObjectContext];
     }
+    
+    // set up haptic feedback objects
+    self.buttonFeedback = [[UISelectionFeedbackGenerator alloc] init];
+    self.notificationFeedback = [[UINotificationFeedbackGenerator alloc] init];
     
     // set up collection view for scoreboard
     UINib *cellNib = [UINib nibWithNibName:@"NibCell" bundle:nil];
@@ -79,18 +85,21 @@
 
 #pragma mark - BUTTON ACTION METHODS
 - (IBAction)finishEndButton:(id)sender {
+    [self.buttonFeedback selectionChanged];
     if(self.game.inProgress){
         [self.game finishEnd: _redTempScore :_yellowTempScore];
         if(self.redTempScore == self.yellowTempScore == 0){
             [self updateScoreBoard];
         }
         [self updateDisplay];
+        [self scrollToLatestScore];
     } else {
         [self showGameOverAlert];
     }
 }
 
 - (IBAction)shake:(id)sender {
+    [self.buttonFeedback selectionChanged];
     if(self.game.inProgress){
         [self confirmEndGame];
     } else {
@@ -99,7 +108,7 @@
 }
 
 - (void)confirmEndGame {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Are you sure?" message:@"Selecting \"Yes\" will end the game early." preferredStyle:UIAlertViewStyleDefault];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Are you sure?" message:@"Selecting \"Yes\" will end the game early." preferredStyle: UIAlertViewStyleDefault];
     UIAlertAction *dismissAction = [UIAlertAction actionWithTitle:@"Cancel"
         style:UIAlertActionStyleCancel handler:^(UIAlertAction * action) {}];
     UIAlertAction *acceptAction = [UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
@@ -108,10 +117,15 @@
     }];
     [alert addAction:dismissAction];
     [alert addAction:acceptAction];
+    
+    // haptic alert
+    [self.notificationFeedback notificationOccurred:UINotificationFeedbackTypeWarning];
+    
     [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (IBAction)incrementRedTempScore:(id)sender {
+    [self.buttonFeedback selectionChanged];
     if(self.redTempScore < 8){
         self.redTempScore++;
         self.yellowTempScore = 0;
@@ -120,6 +134,7 @@
 }
 
 - (IBAction)decrementRedTempScore:(id)sender {
+    [self.buttonFeedback selectionChanged];
     if(self.redTempScore > 0){
         self.redTempScore--;
         [self updateTempScore];
@@ -127,6 +142,7 @@
 }
 
 - (IBAction)incrementYellowTempScore:(id)sender {
+    [self.buttonFeedback selectionChanged];
     if(self.yellowTempScore < 8){
         self.yellowTempScore++;
         self.redTempScore = 0;
@@ -135,6 +151,7 @@
 }
 
 - (IBAction)decrementYellowTempScore:(id)sender {
+    [self.buttonFeedback selectionChanged];
     if(self.yellowTempScore > 0){
         self.yellowTempScore--;
         [self updateTempScore];
@@ -267,7 +284,22 @@
     UIAlertAction *dismissAction = [UIAlertAction actionWithTitle:@"Dismiss"
         style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {}];
     [alert addAction:dismissAction];
+    
+    // error haptic feedback
+    [self.notificationFeedback notificationOccurred:UINotificationFeedbackTypeError];
+    
     [self presentViewController:alert animated:YES completion:nil];
+}
+
+-(void)scrollToLatestScore {
+    NSIndexPath *indexPath;
+    // This method should be called after finishEnd is called on the game object, so we can use hammer to determine the team that didn't score last end
+    if ([self.game.hasHammer isEqualToString: @"red"]) {
+        indexPath = [NSIndexPath indexPathForRow:0 inSection: _game.yellowScoreTotal];
+    } else {
+       indexPath = [NSIndexPath indexPathForRow:0 inSection: _game.redScoreTotal];
+    }
+    [self.collectionView scrollToItemAtIndexPath: indexPath atScrollPosition: UICollectionViewScrollPositionCenteredHorizontally animated:YES];
 }
 
 #pragma mark - SEGUE METHODS
@@ -305,11 +337,11 @@
     
     UIColor *cellColor = [[UIColor alloc]init];
     if(indexPath.row == 0){
-        cellColor = [UIColor yellowColor];
+        cellColor = [UIColor colorWithRed:1.00 green:1.00 blue:0.40 alpha:1.0];
     } else if (indexPath.row == 1){
         cellColor = [UIColor whiteColor];
     } else if (indexPath.row == 2){
-        cellColor = [UIColor redColor];
+        cellColor = [UIColor colorWithRed:1.00 green:0.20 blue:0.20 alpha:1.0];
     }
     cell.backgroundColor = cellColor;
     

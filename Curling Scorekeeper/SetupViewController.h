@@ -14,6 +14,9 @@
 
 @property (strong, nonatomic) IBOutlet UITextField *yellowTeamNameField;
 @property (strong, nonatomic) IBOutlet UITextField *redTeamNameField;
+@property (strong, nonatomic) IBOutlet UILabel *teamNameMessageLabel;
+@property (strong, nonatomic) IBOutlet UIButton *startGameButton;
+- (IBAction)startGameButton:(id)sender;
 
 @property (nonatomic, strong) NSString *yellowTeamName;
 @property (nonatomic, strong) NSString *redTeamName;
