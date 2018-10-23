@@ -22,6 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) IBOutlet UITextView *gameNotesField;
 - (IBAction)yellowTeamNameDoneEditing:(id)sender;
 - (IBAction)redTeamNameDoneEditing:(id)sender;
+- (IBAction)saveButton:(id)sender;
 @end
 
 NS_ASSUME_NONNULL_END

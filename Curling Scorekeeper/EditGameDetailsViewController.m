@@ -9,7 +9,6 @@
 #import "EditGameDetailsViewController.h"
 
 @interface EditGameDetailsViewController ()
-@property (strong, nonatomic) UINotificationFeedbackGenerator *notificationFeedback;
 @property (strong, nonatomic) NSString *nameTooShortMessage;
 @property (strong, nonatomic) NSString *nameTooLongMessage;
 @end
@@ -22,8 +21,6 @@
     self.navigationItem.title = @"Game Details";
     // set text view border
     [self setTextFieldStyles];
-    // init haptic feedback objects
-    self.notificationFeedback = [[UINotificationFeedbackGenerator alloc] init];
     // set up team name error messages
     [self.teamNameMessageLabel setText: @""];
     self.nameTooShortMessage = @"Cannot leave name blank";
