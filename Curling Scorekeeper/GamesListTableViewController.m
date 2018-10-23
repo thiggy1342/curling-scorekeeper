@@ -60,7 +60,15 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"GameCell" forIndexPath:indexPath];
     GameMO *gameMO = _gamesArray[indexPath.row];
-    NSString *label = [NSString stringWithFormat:@"%@ vs %@", gameMO.yellowTeamName, gameMO.redTeamName];
+    
+    // set label to game name if defined. otherwise, the team names
+    NSString *label;
+    if(gameMO.gameName){
+        label = [NSString stringWithFormat:@"%@ (%@ vs %@)",
+                 gameMO.gameName, gameMO.yellowTeamName, gameMO.redTeamName];
+    } else {
+        label = [NSString stringWithFormat:@"%@ vs %@", gameMO.yellowTeamName, gameMO.redTeamName];
+    }
     cell.textLabel.text = label;
  
     return cell;

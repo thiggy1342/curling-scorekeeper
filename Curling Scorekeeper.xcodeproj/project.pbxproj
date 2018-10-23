@@ -16,9 +16,9 @@
 		663654DC1E82191D00509769 /* Curling_ScorekeeperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 663654DB1E82191D00509769 /* Curling_ScorekeeperTests.m */; };
 		663654E71E82191D00509769 /* Curling_ScorekeeperUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 663654E61E82191D00509769 /* Curling_ScorekeeperUITests.m */; };
 		663654F61E84B41800509769 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = 663654F51E84B41800509769 /* Game.m */; };
+		6671AFD32176C9EE00D44266 /* EditGameDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6671AFD22176C9EE00D44266 /* EditGameDetailsViewController.m */; };
 		66C9847C1E92A54A006DB5B4 /* NibCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66C9847B1E92A54A006DB5B4 /* NibCell.xib */; };
 		6D80E8AF206AA7F800A96355 /* CurlingScorekeeper.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6D80E8AD206AA7F800A96355 /* CurlingScorekeeper.xcdatamodeld */; };
-		6D80E8C1206AA98900A96355 /* GameMO+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D80E8BF206AA98900A96355 /* GameMO+CoreDataProperties.m */; };
 		6D80E8C5206AAEF300A96355 /* DataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D80E8C4206AAEF300A96355 /* DataController.m */; };
 		6D80E8C8206AD4B300A96355 /* GamesListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D80E8C7206AD4B300A96355 /* GamesListTableViewController.m */; };
 /* End PBXBuildFile section */
@@ -60,6 +60,8 @@
 		663654E81E82191D00509769 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		663654F41E84B41800509769 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Game.h; path = "Curling Scorekeeper/Game.h"; sourceTree = SOURCE_ROOT; };
 		663654F51E84B41800509769 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Game.m; path = "Curling Scorekeeper/Game.m"; sourceTree = SOURCE_ROOT; };
+		6671AFD12176C9EE00D44266 /* EditGameDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditGameDetailsViewController.h; sourceTree = "<group>"; };
+		6671AFD22176C9EE00D44266 /* EditGameDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditGameDetailsViewController.m; sourceTree = "<group>"; };
 		66C9847B1E92A54A006DB5B4 /* NibCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NibCell.xib; sourceTree = "<group>"; };
 		6D80E8AE206AA7F800A96355 /* CurlingScorekeeper.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CurlingScorekeeper.xcdatamodel; sourceTree = "<group>"; };
 		6D80E8BC206AA98900A96355 /* GameMO+CoreDataProperties.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GameMO+CoreDataProperties.h"; sourceTree = "<group>"; };
@@ -142,6 +144,8 @@
 				6D80E8C4206AAEF300A96355 /* DataController.m */,
 				6D80E8C6206AD4B300A96355 /* GamesListTableViewController.h */,
 				6D80E8C7206AD4B300A96355 /* GamesListTableViewController.m */,
+				6671AFD12176C9EE00D44266 /* EditGameDetailsViewController.h */,
+				6671AFD22176C9EE00D44266 /* EditGameDetailsViewController.m */,
 			);
 			path = "Curling Scorekeeper";
 			sourceTree = "<group>";
@@ -307,13 +311,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				663654C91E82191D00509769 /* ViewController.m in Sources */,
+				6671AFD32176C9EE00D44266 /* EditGameDetailsViewController.m in Sources */,
 				6D80E8C8206AD4B300A96355 /* GamesListTableViewController.m in Sources */,
 				663654C61E82191D00509769 /* AppDelegate.m in Sources */,
 				663654C31E82191D00509769 /* main.m in Sources */,
 				661394931E932B2400EE3671 /* SetupViewController.m in Sources */,
 				6D80E8AF206AA7F800A96355 /* CurlingScorekeeper.xcdatamodeld in Sources */,
 				663654F61E84B41800509769 /* Game.m in Sources */,
-				6D80E8C1206AA98900A96355 /* GameMO+CoreDataProperties.m in Sources */,
 				6D80E8C5206AAEF300A96355 /* DataController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "GameMO+CoreDataClass.h"
+#import "GameMO+CoreDataProperties.h"
 #import "Game.h"
 #import "SetupViewController.h"
 #import "GamesListTableViewController.h"
 #import "DataController.h"
+#import "EditGameDetailsViewController.h"
 
 @interface ViewController : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource>;
 

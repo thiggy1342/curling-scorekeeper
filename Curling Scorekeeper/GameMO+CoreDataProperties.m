@@ -8,7 +8,6 @@
 //
 
 #import "GameMO+CoreDataProperties.h"
-#import "Game.h"
 
 @implementation GameMO (CoreDataProperties)
 
@@ -44,5 +43,7 @@
 @dynamic yellowTeamName;
 @dynamic yellowScoreTotal;
 @dynamic yellowScoreArray;
+@dynamic gameName;
+@dynamic gameNotes;
 
 @end

@@ -8,6 +8,7 @@
 //
 
 #import "GameMO+CoreDataClass.h"
+#import "Game.h"
 @class Game;
 
 
@@ -30,7 +31,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, copy) NSString *yellowTeamName;
 @property (nonatomic) int16_t yellowScoreTotal;
 @property (nullable, nonatomic, retain) NSMutableArray *yellowScoreArray;
-
+@property (nullable, nonatomic, copy) NSString *gameName;
+@property (nullable, nonatomic, copy) NSString *gameNotes;
 @end
 
 NS_ASSUME_NONNULL_END
