@@ -15,8 +15,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface EditGameDetailsViewController : UIViewController
 @property (nonatomic, strong)GameMO *gameMO;
 @property (nonatomic, strong)NSManagedObjectContext *context;
+@property (strong, nonatomic) IBOutlet UITextField *yellowTeamNameField;
+@property (strong, nonatomic) IBOutlet UITextField *redTeamNameField;
+@property (strong, nonatomic) IBOutlet UILabel *teamNameMessageLabel;
 @property (strong, nonatomic) IBOutlet UITextField *gameNameField;
 @property (strong, nonatomic) IBOutlet UITextView *gameNotesField;
+- (IBAction)yellowTeamNameDoneEditing:(id)sender;
+- (IBAction)redTeamNameDoneEditing:(id)sender;
 @end
 
 NS_ASSUME_NONNULL_END

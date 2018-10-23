@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		661394931E932B2400EE3671 /* SetupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 661394921E932B2400EE3671 /* SetupViewController.m */; };
+		66361069217EBB9700F54D26 /* GameMO+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D80E8BF206AA98900A96355 /* GameMO+CoreDataProperties.m */; };
 		663654C31E82191D00509769 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 663654C21E82191D00509769 /* main.m */; };
 		663654C61E82191D00509769 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 663654C51E82191D00509769 /* AppDelegate.m */; };
 		663654C91E82191D00509769 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 663654C81E82191D00509769 /* ViewController.m */; };
@@ -310,6 +311,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66361069217EBB9700F54D26 /* GameMO+CoreDataProperties.m in Sources */,
 				663654C91E82191D00509769 /* ViewController.m in Sources */,
 				6671AFD32176C9EE00D44266 /* EditGameDetailsViewController.m in Sources */,
 				6D80E8C8206AD4B300A96355 /* GamesListTableViewController.m in Sources */,

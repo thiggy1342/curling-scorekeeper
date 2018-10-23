@@ -63,7 +63,7 @@
     
     // set label to game name if defined. otherwise, the team names
     NSString *label;
-    if(gameMO.gameName){
+    if([gameMO.gameName length] > 0){
         label = [NSString stringWithFormat:@"%@ (%@ vs %@)",
                  gameMO.gameName, gameMO.yellowTeamName, gameMO.redTeamName];
     } else {

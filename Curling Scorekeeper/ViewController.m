@@ -24,7 +24,7 @@
     self.navigationItem.hidesBackButton = YES;
     
     // Add title to the nav bar
-    if(_gameMO.gameName){
+    if([_gameMO.gameName length] > 0){
         self.navigationItem.title = _gameMO.gameName;
     } else {
         self.navigationItem.title = @"Untitled Game";
