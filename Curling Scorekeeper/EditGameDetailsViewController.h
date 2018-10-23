@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong)GameMO *gameMO;
 @property (nonatomic, strong)NSManagedObjectContext *context;
 @property (strong, nonatomic) IBOutlet UITextField *gameNameField;
-@property (strong, nonatomic) IBOutlet UITextField *gameNotesField;
+@property (strong, nonatomic) IBOutlet UITextView *gameNotesField;
 @end
 
 NS_ASSUME_NONNULL_END

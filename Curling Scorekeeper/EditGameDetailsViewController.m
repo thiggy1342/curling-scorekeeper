@@ -18,6 +18,9 @@
     [super viewDidLoad];
     //set view title
     self.navigationItem.title = @"Game Details";
+    // set text view border
+    [self setTextFieldStyles];
+    
     if(self.gameMO.gameName) {
         [self.gameNameField setText:self.gameMO.gameName];
     }
@@ -26,6 +29,22 @@
     }
 }
 
+- (void)setTextFieldStyles {
+    // magic numbers
+    int borderWidth = 1;
+    int cornerRadius = 5;
+    UIColor *borderColor = [UIColor colorWithRed:250.0/255.0 green:250.0/255.0 blue:250.0/255.0 alpha:1.0];
+    
+    //set border widths
+    self.gameNameField.layer.borderWidth = borderWidth;
+    self.gameNotesField.layer.borderWidth = borderWidth;
+    //set border radii
+    self.gameNameField.layer.cornerRadius = cornerRadius;
+    self.gameNotesField.layer.cornerRadius = cornerRadius;
+    //set border color
+    self.gameNotesField.layer.borderColor = [borderColor CGColor];
+    self.gameNameField.layer.borderColor = [borderColor CGColor];
+}
 
 #pragma mark - Navigation
 
