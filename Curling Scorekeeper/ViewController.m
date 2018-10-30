@@ -24,7 +24,11 @@
     self.navigationItem.hidesBackButton = YES;
     
     // Add title to the nav bar
-    self.navigationItem.title = @"Update Game";
+    if([_gameMO.gameName length] > 0){
+        self.navigationItem.title = _gameMO.gameName;
+    } else {
+        self.navigationItem.title = @"Untitled Game";
+    }
     
     // set up context if not defined
     if (!_context) {
@@ -306,7 +310,7 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"doneSegue"]) {
         // Update GameMO values before save
-        [_gameMO updateFromGameInstance: _game];
+        [_gameMO updateFromGameInstance:_game];
         NSError *error = nil;
         [_context save:&error];
         if(error){
@@ -314,6 +318,17 @@
         }
         GamesListTableViewController *destController = segue.destinationViewController;
         destController.context = _context;
+    } else if ([segue.identifier isEqualToString:@"editGameDetailsSegue"]) {
+        // Update GameMO values before save
+        [_gameMO updateFromGameInstance:_game];
+        NSError *error = nil;
+        [_context save:&error];
+        if(error){
+            NSLog(@"Unable to save game: %@", error.description);
+        }
+        EditGameDetailsViewController *destController = segue.destinationViewController;
+        destController.context = _context;
+        destController.gameMO = _gameMO;
     }
 }
 

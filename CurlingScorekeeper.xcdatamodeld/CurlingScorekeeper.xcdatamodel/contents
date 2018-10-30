@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13772" systemVersion="17D102" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14315.18" systemVersion="17G65" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
     <entity name="GameMO" representedClassName="GameMO" syncable="YES" codeGenerationType="class">
         <attribute name="dateCreated" attributeType="Date" defaultDateTimeInterval="543860760" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="dateUpdated" attributeType="Date" defaultDateTimeInterval="543860760" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="end" attributeType="Integer 16" defaultValueString="1" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="gameName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="gameNotes" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="hasHammer" attributeType="String" defaultValueString="yellow" syncable="YES"/>
         <attribute name="inProgress" attributeType="Boolean" defaultValueString="YES" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="redScoreArray" optional="YES" attributeType="Transformable" customClassName="NSMutableArray" syncable="YES"/>
@@ -14,6 +16,6 @@
         <attribute name="yellowTeamName" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="GameMO" positionX="-63" positionY="-18" width="128" height="210"/>
+        <element name="GameMO" positionX="-63" positionY="-18" width="128" height="240"/>
     </elements>
 </model>
