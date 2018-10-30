@@ -23,8 +23,8 @@
     [self setTextFieldStyles];
     // set up team name error messages
     [self.teamNameMessageLabel setText: @""];
-    self.nameTooShortMessage = @"Cannot leave name blank";
-    self.nameTooLongMessage = @"Name must be less than 25 characters";
+    self.nameTooShortMessage = @"Cannot leave team name blank";
+    self.nameTooLongMessage = @"Team name must be less than 25 characters";
     // set existing values
     [self.yellowTeamNameField setText:_gameMO.yellowTeamName];
     [self.redTeamNameField setText:_gameMO.redTeamName];
@@ -53,7 +53,7 @@
     // magic numbers
     int borderWidth = 1;
     int cornerRadius = 5;
-    UIColor *borderColor = [UIColor colorWithRed:250.0/255.0 green:250.0/255.0 blue:250.0/255.0 alpha:1.0];
+    UIColor *borderColor = [UIColor colorWithRed:220.0/255.0 green:220.0/255.0 blue:220.0/255.0 alpha:1.0];
     
     //set border widths
     self.gameNameField.layer.borderWidth = borderWidth;

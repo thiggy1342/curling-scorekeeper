@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ljo-eg-Ugc">
-                                <rect key="frame" x="70.333333333333343" y="601" width="273.33333333333326" height="41"/>
+                                <rect key="frame" x="70.333333333333343" y="645" width="273.33333333333326" height="41"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <state key="normal" title=" Good curling! ">
@@ -39,7 +39,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="center" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Yellow Team Name" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="5ZU-o2-Z0F">
-                                <rect key="frame" x="70.333333333333343" y="70" width="273.33333333333326" height="33"/>
+                                <rect key="frame" x="70.333333333333343" y="114" width="273.33333333333326" height="33"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <accessibility key="accessibilityConfiguration" hint="Yellow Team Name"/>
                                 <nil key="textColor"/>
@@ -50,7 +50,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="center" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Red Team Name" adjustsFontSizeToFit="NO" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Gpz-Y8-CKf">
-                                <rect key="frame" x="70.333333333333343" y="153" width="273.33333333333326" height="33"/>
+                                <rect key="frame" x="70.333333333333343" y="197" width="273.33333333333326" height="33"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <accessibility key="accessibilityConfiguration" hint="Red Team Name"/>
                                 <nil key="textColor"/>
@@ -61,7 +61,7 @@
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="team name error label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sxp-Kn-fss">
-                                <rect key="frame" x="70.333333333333343" y="196" width="273.33333333333326" height="17"/>
+                                <rect key="frame" x="70.333333333333343" y="240" width="273.33333333333326" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="1" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -133,7 +133,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YMu-Bo-bgL">
-                                <rect key="frame" x="20" y="360" width="374" height="376"/>
+                                <rect key="frame" x="20" y="360" width="374" height="368"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -215,7 +215,7 @@
                             <constraint firstItem="2wi-da-6jO" firstAttribute="top" secondItem="0cx-Ow-8Mh" secondAttribute="bottom" constant="8" id="cAZ-ES-6mK"/>
                             <constraint firstItem="YMu-Bo-bgL" firstAttribute="width" secondItem="ZLO-jk-fru" secondAttribute="width" id="cjJ-5x-H4j"/>
                             <constraint firstItem="YMu-Bo-bgL" firstAttribute="centerX" secondItem="ZLO-jk-fru" secondAttribute="centerX" id="fAx-QC-yit"/>
-                            <constraint firstAttribute="bottom" secondItem="YMu-Bo-bgL" secondAttribute="bottom" id="fFQ-ix-bcE"/>
+                            <constraint firstAttribute="bottom" secondItem="YMu-Bo-bgL" secondAttribute="bottom" constant="8" id="fFQ-ix-bcE"/>
                             <constraint firstItem="89l-DP-69Z" firstAttribute="centerX" secondItem="w0L-p9-xTF" secondAttribute="centerX" id="fuc-oT-gB6"/>
                             <constraint firstItem="YMu-Bo-bgL" firstAttribute="top" secondItem="2Lo-fw-TJt" secondAttribute="bottom" constant="8" id="i8r-Th-uiq"/>
                             <constraint firstItem="ZLO-jk-fru" firstAttribute="leading" secondItem="B5e-RS-AZd" secondAttribute="leadingMargin" id="iLe-K1-sgv"/>
@@ -709,8 +709,8 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Wc1-eZ-Wuv"/>
-        <segue reference="rrM-GA-WR7"/>
+        <segue reference="IFc-di-0AG"/>
         <segue reference="a1v-qg-dnP"/>
-        <segue reference="WSw-In-JSr"/>
+        <segue reference="XGU-kX-VO2"/>
     </inferredMetricsTieBreakers>
 </document>
