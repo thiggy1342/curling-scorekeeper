@@ -39,6 +39,7 @@
 - (IBAction)decrementRedTempScore:(id)sender;
 - (IBAction)finishEndButton:(id)sender;
 - (IBAction)shake:(id)sender;
+- (IBAction)undoEnd:(id)sender;
 
 @end
 

@@ -36,11 +36,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Curling Scorekeeper/ViewController.m"
-            timestampString = "561958277.200601"
+            timestampString = "563771925.686048"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
             landmarkName = "-setupNewGame"
             landmarkType = "7">
          </BreakpointContent>
