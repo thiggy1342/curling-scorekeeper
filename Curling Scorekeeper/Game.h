@@ -25,5 +25,6 @@
 -(void)incrementEnd;
 -(NSString*)currentlyLeading;
 -(id)initWithManagedObject: (GameMO*)gameMO;
+-(void)decrementEnd;
 
 @end

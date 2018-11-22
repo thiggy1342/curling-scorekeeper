@@ -23,13 +23,6 @@
     // hides back button in nav bar
     self.navigationItem.hidesBackButton = YES;
     
-    // Add title to the nav bar
-    if([_gameMO.gameName length] > 0){
-        self.navigationItem.title = _gameMO.gameName;
-    } else {
-        self.navigationItem.title = @"Untitled Game";
-    }
-    
     // set up context if not defined
     if (!_context) {
         DataController *dataController = [[DataController alloc]init];
@@ -93,7 +86,7 @@
     if(self.game.inProgress){
         [self.game finishEnd: _redTempScore :_yellowTempScore];
         if(self.redTempScore == self.yellowTempScore == 0){
-            [self updateScoreBoard];
+            [self addScoreToScoreBoard];
         }
         [self updateDisplay];
         [self scrollToLatestScore];
@@ -111,13 +104,56 @@
     }
 }
 
+- (IBAction)undoEnd:(id)sender {
+    if (self.game.end == 1){
+        return; // return early and do nothing if it's the first end
+    }
+    [self.buttonFeedback selectionChanged];
+    [self confirmUndoEnd];
+}
+
+- (void)undoEndAction {
+    int index = self.game.end-2; // -1 because this end's score doesn't exist, and then another -1 because array index starts at 0
+    int score;
+    int row;
+    if([self.game.yellowScoreArray[index] integerValue] > 0){
+        score = self.game.yellowScoreTotal;
+        row = 0;
+        [self removeScoreFromScoreBoardAtScore: score onRow: row];
+    } else if ([self.game.redScoreArray[index] integerValue] > 0){
+        score = self.game.redScoreTotal;
+        row = 2;
+        [self removeScoreFromScoreBoardAtScore: score onRow: row];
+    }
+    [self.game decrementEnd];
+    [self updateHammerIndicator];
+    [self updateDisplay];
+}
+
 - (void)confirmEndGame {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Are you sure?" message:@"Selecting \"Yes\" will end the game early." preferredStyle: UIAlertViewStyleDefault];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Shake and finish early?" message:@"Selecting \"Yes\" will end the game early." preferredStyle: UIAlertViewStyleDefault];
     UIAlertAction *dismissAction = [UIAlertAction actionWithTitle:@"Cancel"
         style:UIAlertActionStyleCancel handler:^(UIAlertAction * action) {}];
     UIAlertAction *acceptAction = [UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
         self.game.inProgress = NO;
         [self updateDisplay];
+    }];
+    [alert addAction:dismissAction];
+    [alert addAction:acceptAction];
+    
+    // haptic alert
+    [self.notificationFeedback notificationOccurred:UINotificationFeedbackTypeWarning];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+- (void)confirmUndoEnd {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Undo End?" message:@"Selecting \"Yes\" will undo the most recent end." preferredStyle: UIAlertViewStyleDefault];
+    UIAlertAction *dismissAction = [UIAlertAction actionWithTitle:@"Cancel"
+                                                            style:UIAlertActionStyleCancel handler:^(UIAlertAction * action) {}];
+    UIAlertAction *acceptAction = [UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        [self undoEndAction];
+
     }];
     [alert addAction:dismissAction];
     [alert addAction:acceptAction];
@@ -204,7 +240,7 @@
     NSString *hammerString = @"🔨";
     
     // determine which row to place the hammerString on
-    if([_game.hasHammer isEqualToString:@"red"]){
+    if([self.game.hasHammer isEqualToString:@"red"]){
         // Red scores and hammer are on the bottom row of the scoreboard
         hammerRow = 2;
         noHammerRow = 0;
@@ -220,7 +256,7 @@
     [self.scoreBoardArray[0] replaceObjectAtIndex:hammerRow withObject:hammerString];
 }
 
--(void)updateScoreBoard {
+-(void)addScoreToScoreBoard {
     int scoreRow;
     int totalScore;
     
@@ -240,6 +276,10 @@
     [self updateHammerIndicator];
     
     [self.scoreBoardArray[totalScore] replaceObjectAtIndex:scoreRow withObject:[NSString stringWithFormat:@"%i",self.game.end-1]];
+}
+
+-(void)removeScoreFromScoreBoardAtScore:(int) score onRow:(int) row {
+    [self.scoreBoardArray[score] replaceObjectAtIndex:row withObject:@""];
 }
 
 -(void)extendScoreboardTo:(int) totalColumns {
@@ -266,6 +306,7 @@
     [_redScoreLabel setText: [NSString stringWithFormat:@"%i",self.game.redScoreTotal]];
     [self.collectionView reloadData];
     [self resetTempScore];
+    self.navigationItem.title = [NSString stringWithFormat:@"End %i",self.game.end];
     if(_game.inProgress == NO){
         [self.finalScoreLabel setText: @"Final"];
     }
