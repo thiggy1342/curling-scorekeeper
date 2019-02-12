@@ -44,6 +44,7 @@
 /* Begin PBXFileReference section */
 		661394911E932B2400EE3671 /* SetupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetupViewController.h; sourceTree = "<group>"; };
 		661394921E932B2400EE3671 /* SetupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetupViewController.m; sourceTree = "<group>"; };
+		6625A35E21A70D7F00D3DDF5 /* Curling Scorekeeper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Curling Scorekeeper.entitlements"; sourceTree = "<group>"; };
 		663654BE1E82191D00509769 /* Curling Scorekeeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Curling Scorekeeper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		663654C21E82191D00509769 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		663654C41E82191D00509769 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -100,6 +101,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6625A35F21A70E0300D3DDF5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		663654B51E82191D00509769 = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +116,7 @@
 				663654DA1E82191D00509769 /* Curling ScorekeeperTests */,
 				663654E51E82191D00509769 /* Curling ScorekeeperUITests */,
 				663654BF1E82191D00509769 /* Products */,
+				6625A35F21A70E0300D3DDF5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -124,6 +133,7 @@
 		663654C01E82191D00509769 /* Curling Scorekeeper */ = {
 			isa = PBXGroup;
 			children = (
+				6625A35E21A70D7F00D3DDF5 /* Curling Scorekeeper.entitlements */,
 				6D80E8BC206AA98900A96355 /* GameMO+CoreDataProperties.h */,
 				6D80E8BD206AA98900A96355 /* GameMO+CoreDataClass.h */,
 				6D80E8BE206AA98900A96355 /* GameMO+CoreDataClass.m */,
@@ -246,6 +256,14 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = C5FFXASN32;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 0;
+							};
+						};
 					};
 					663654D61E82191D00509769 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -478,6 +496,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = "Curling Scorekeeper/Curling Scorekeeper.entitlements";
 				DEVELOPMENT_TEAM = C5FFXASN32;
 				INFOPLIST_FILE = "Curling Scorekeeper/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -493,6 +512,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_ENTITLEMENTS = "Curling Scorekeeper/Curling Scorekeeper.entitlements";
 				DEVELOPMENT_TEAM = C5FFXASN32;
 				INFOPLIST_FILE = "Curling Scorekeeper/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;

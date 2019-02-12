@@ -307,8 +307,14 @@
     [self.collectionView reloadData];
     [self resetTempScore];
     self.navigationItem.title = [NSString stringWithFormat:@"End %i",self.game.end];
+    [self updateFinalScoreLabel];
+}
+
+-(void)updateFinalScoreLabel {
     if(_game.inProgress == NO){
         [self.finalScoreLabel setText: @"Final"];
+    } else {
+        [self.finalScoreLabel setText: @""];
     }
 }
 
