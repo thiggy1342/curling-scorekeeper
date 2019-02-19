@@ -21,6 +21,9 @@
     self.navigationItem.title = @"Game Details";
     // set text view border
     [self setTextFieldStyles];
+    
+    [self registerForKeyboardNotifications];
+    
     // set up team name error messages
     [self.teamNameMessageLabel setText: @""];
     self.nameTooShortMessage = @"Cannot leave team name blank";
@@ -47,6 +50,11 @@
         [self.teamNameMessageLabel setText:@""];
         self.navigationItem.rightBarButtonItem.enabled = YES;
     }
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
 }
 
 - (void)setTextFieldStyles {
@@ -110,5 +118,25 @@
         destController.context = _context;
         destController.gameMO = _gameMO;
     }
+}
+
+// Called in viewDidLoad
+- (void)registerForKeyboardNotifications
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWasShown:) name:UIKeyboardDidShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillBeHidden:) name:UIKeyboardWillHideNotification object:nil];
+}
+
+- (void)keyboardWasShown:(NSNotification*)notification {
+    NSDictionary* info = [notification userInfo];
+    CGSize keyboardSize = [[info objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
+    
+    self.gameNotesField.contentInset = UIEdgeInsetsMake(0, 0, keyboardSize.height, 0);
+    self.gameNotesField.scrollIndicatorInsets = self.gameNotesField.contentInset;
+}
+
+- (void)keyboardWillBeHidden:(NSNotification*)notification {
+    self.gameNotesField.contentInset = UIEdgeInsetsZero;
+    self.gameNotesField.scrollIndicatorInsets = UIEdgeInsetsZero;
 }
 @end
